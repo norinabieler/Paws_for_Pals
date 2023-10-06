@@ -1,3 +1,59 @@
 body {
-    background-color: yellow;
+    background-color: white;
+
+    /*Hintergrundbild Tiger*/
+    background-image: url('https://images.pexels.com/photos/6278664/pexels-photo-6278664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size:250%; /* Das Bild wird so skaliert, dass es den gesamten Bildschirm ausfüllt */
+    background-repeat: no-repeat; /* Verhindert die Wiederholung des Bildes */
+    background-attachment: fixed; /* Fixiert das Bild im Hintergrund, wenn die Seite gescrollt wird */
+    background-position: center top -140px;
+    font-family: 'Istok Web', sans-serif;
+     
+
 }
+
+/*Titel Paws for Pals zentrieren und Farbe ändern*/
+h1 {
+    text-align: center;
+    color: white;
+  }
+
+
+/*Button Benutzername, Passwort und Anmeldung*/
+
+  div {
+    text-align: center; /* Zentriert den Inhalt horizontal */
+    position: absolute; /* Absolute Positionierung, um die Mitte unten zu erreichen */
+    left: 0;
+    right: 0;
+    top: 45%; /* In der vertikalen Mitte anfangen */
+    transform: translateY(50px)
+
+  }
+
+  input[type="email"],
+input[type="password"] {
+  display: block; /* Macht die Elemente zu Blockelementen, damit sie untereinander angezeigt werden */
+  margin: 5px auto; /* Zentriert die Elemente horizontal */
+  padding: 20px; /* Abstand innerhalb der Elemente */
+  padding-left: 0px;
+  border: none; /* Entfernt die Rahmen um die Eingabefelder */
+  border-bottom: 2px solid #ffffff; /* Linie unterhalb des Eingabefelds in Braun (1px dick) */
+  background: transparent;
+  font-size: 25px;
+  font-family: 'Istok Web', sans-serif;
+}
+
+button {
+    display: block; /* Macht die Buttons zu Blockelementen, damit sie untereinander angezeigt werden */
+    margin: 10px auto; /* Zentriert die Buttons horizontal und fügt Abstand hinzu */
+    padding: 4px 30px; /* Abstand innerhalb der Buttons */
+    background-color: white; /* Hintergrundfarbe auf Weiß setzen */
+    border: 2px solid  white; /* Entfernt die Rahmen um die Buttons */
+    border-radius: 30px;
+    color: #B48871; /* Textfarbe auf die gewünschte Farbe (Braun) setzen */
+    font-size: 30px;
+    font-family: 'Istok Web', sans-serif; /* Schriftart auf Istok Web ändern */
+    font-weight: bold; 
+  }
+  
