@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#feed {
+    padding: 10px;
+}
+
+.continent-buttons {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.continent-button {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.kachel {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+}
+
+.kachel-details {
+    display: none;
+}
+
+.toggle-details {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.toggle-details.open {
+    transform: rotate(180deg);
+}
+
+.donate-button {
+    background-color: #ff5733;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#bottom-buttons {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    bottom: 0;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+#feed-button, #profile-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
