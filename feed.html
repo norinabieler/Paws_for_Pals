@@ -1,91 +1,123 @@
-<!--diesen code anpassen angela-->
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Tier-Feed</title>
-    <style>
-        details {
-            border: 1px solid #ccc;
-            margin: 10px;
-            padding: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles_feed.css">
 </head>
 <body>
-    <details>
-        <summary>
-            <h3>Tier 1 - Hund</h3>
-        </summary>
-        <p>Name: Rex</p>
-        <p>Alter: 3 Jahre</p>
-        <p>Rasse: Labrador</p>
-        <button onclick="showDetails(this)">Erfahre mehr</button>
-        <div style="display: none;">
-            <p>Weitere Informationen über Rex...</p>
-            <button onclick="donate()">Jetzt spenden</button>
-        </div>
-    </details>
+    <div class="continent-buttons">
+        <span class="continent-button" onclick="filterByContinent('Afrika')">Afrika</span>
+        <span class="continent-button" onclick="filterByContinent('Asien')">Asien</span>
+        <span class="continent-button" onclick="filterByContinent('Australien')">Australien</span>
+    </div>
 
-    <details>
-        <summary>
-            <h3>Tier 2 - Katze</h3>
-        </summary>
-        <p>Name: Whiskers</p>
-        <p>Alter: 5 Jahre</p>
-        <p>Rasse: Maine Coon</p>
-        <button onclick="showDetails(this)">Erfahre mehr</button>
-        <div style="display: none;">
-            <p>Weitere Informationen über Whiskers...</p>
-            <button onclick="donate()">Jetzt spenden</button>
-        </div>
-    </details>
+    <div class="continent-buttons">
+        <span class="continent-button" onclick="filterByContinent('Amerika')">Amerika</span>
+        <span class="continent-button" onclick="filterByContinent('Europa')">Europa</span>
+    </div>
+<!--Tierkacheln-->
+<!--Tier 1-->
+    <div id="feed">
+        <details class="Kacheln">
+            <summary>
+                <h3>Tier 1 - Hund</h3>
+            </summary>
+            <p>Name: Rex</p>
+            <p>Alter: 3 Jahre</p>
+            <p>Rasse: Labrador</p>
+            <button onclick="showDetails(this)">Erfahre mehr</button>
+            <div style="display: none;">
+                <p>Weitere Informationen über Rex...</p>
+                <button onclick="donate()">Jetzt spenden</button>
+            </div>
+        </details>
+<!--Tier 2-->
+        <details>
+            <summary>
+                <h3>Tier 2 - Katze</h3>
+            </summary>
+            <p>Name: Whiskers</p>
+            <p>Alter: 5 Jahre</p>
+            <p>Rasse: Maine Coon</p>
+            <button onclick="showDetails(this)">Erfahre mehr</button>
+            <div style="display: none;">
+                <p>Weitere Informationen über Whiskers...</p>
+                <button onclick="donate()">Jetzt spenden</button>
+            </div>
+        </details>
+<!--Tier 3-->
+<details>
+    <summary>
+        <h3>Tier 3 - Papagei</h3>
+    </summary>
+    <p>Name: Polly</p>
+    <p>Alter: 10 Jahre</p>
+    <p>Art: Ara</p>
+    <button onclick="showDetails(this)">Erfahre mehr</button>
+    <div style="display: none;">
+        <p>Weitere Informationen über Polly...</p>
+        <button onclick="donate()">Jetzt spenden</button>
+    </div>
+</details>
 
-    <details>
-        <summary>
-            <h3>Tier 3 - Papagei</h3>
-        </summary>
-        <p>Name: Polly</p>
-        <p>Alter: 10 Jahre</p>
-        <p>Art: Ara</p>
-        <button onclick="showDetails(this)">Erfahre mehr</button>
-        <div style="display: none;">
-            <p>Weitere Informationen über Polly...</p>
-            <button onclick="donate()">Jetzt spenden</button>
-        </div>
-    </details>
+<!--Tier 4-->
+<details>
+    <summary>
+        <h3>Tier 4 - Kaninchen</h3>
+    </summary>
+    <p>Name: Fluffy</p>
+    <p>Alter: 2 Jahre</p>
+    <p>Rasse: Zwergkaninchen</p>
+    <button onclick="showDetails(this)">Erfahre mehr</button>
+    <div style="display: none;">
+        <p>Weitere Informationen über Fluffy...</p>
+        <button onclick="donate()">Jetzt spenden</button>
+    </div>
+</details>
 
-    <details>
-        <summary>
-            <h3>Tier 4 - Kaninchen</h3>
-        </summary>
-        <p>Name: Fluffy</p>
-        <p>Alter: 2 Jahre</p>
-        <p>Rasse: Zwergkaninchen</p>
-        <button onclick="showDetails(this)">Erfahre mehr</button>
-        <div style="display: none;">
-            <p>Weitere Informationen über Fluffy...</p>
-            <button onclick="donate()">Jetzt spenden</button>
-        </div>
-    </details>
+    </div>
+
+    <div id="bottom-buttons">
+        <button id="feed-button">Feed</button>
+        <button id="profile-button">Mein Profil</button>
+    </div>
 
     <script>
-        function showDetails(button) {
-            const details = button.parentElement;
-            const content = details.querySelector('div');
-            if (content.style.display === 'none' || content.style.display === '') {
-                content.style.display = 'block';
-                button.textContent = 'Weniger Informationen';
-            } else {
-                content.style.display = 'none';
-                button.textContent = 'Erfahre mehr';
-            }
+        const toggleButtons = document.querySelectorAll('.toggle-details');
+        const donateButtons = document.querySelectorAll('.donate-button');
+
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const details = this.closest('details');
+                const content = details.querySelector('.kachel-details');
+
+                if (content.style.display === 'none' || content.style.display === '') {
+                    content.style.display = 'block';
+                    this.textContent = 'Weniger Informationen';
+                    this.classList.add('open');
+                } else {
+                    content.style.display = 'none';
+                    this.textContent = 'Erfahre mehr';
+                    this.classList.remove('open');
+                }
+            });
+        });
+
+        donateButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Hier kannst du den Spendenprozess implementieren
+                alert('Vielen Dank für Ihre Spende!');
+            });
+        });
+
+        function filterByContinent(continent) {
+            // Hier kannst du die Filterung nach Kontinent implementieren
+            alert(`Filtern nach Kontinent: ${continent}`);
         }
 
-        function donate() {
-            // Hier kannst du den Spendenprozess implementieren
-            alert('Vielen Dank für Ihre Spende!');
-        }
+        // Dummyfunktionen für die Buttons unten
+        document.getElementById('feed-button').addEventListener('click', () => alert('Zum Feed gehen'));
+        document.getElementById('profile-button').addEventListener('click', () => alert('Zum Profil gehen'));
     </script>
 </body>
 </html>
