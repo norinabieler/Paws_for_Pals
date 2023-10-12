@@ -1,4 +1,91 @@
 body {
-    font-family: 'Istok Web';
+    font-family: 'Istok Web', sans-serif;
     background-color: #F6E9D6;
+    color: #9E725A;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* _________________________________________Header_____________________________ */
+
+.header {
+    margin: 15px;
+    vertical-align: middle;
+    display: flex;
+    font-style: bold;
+}
+
+.icon_profile {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.name {
+    font-size: 30px;
+    margin-left: 35px;
+    font-style: normal;
+}
+
+/* _________________________________________Header_____________________________ */
+
+
+.container {
+    background-color: white; 
+    border-radius: 10px; 
+    padding: 20px; 
+    margin: 0 15px;
+}
+
+p {
+    margin: 0;
+}
+
+h2 {
+    border-bottom: 4px solid;
+    text-underline-offset: 6px;
+}
+
+h3 {
+    margin: 15px 3px 0px 0px;
+}
+
+
+/* _________________________________________Navigation_____________________________ */
+
+
+.bottom-buttons {
+    margin-top: auto; /* Bringt die Containerinhalte ans untere Ende des Bildschirms */
+    display: flex;
+    justify-content: center; /* Horizontal zentriert */
+    align-items: center; /* Vertikal zentriert */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.feed-button {
+    width: 50%;
+    background-color: #9E725A;
+    height: 60px;
+    border: none;
+    color: #F6E9D6;
+}
+
+.profile-button {
+    width: 50%;
+    background-color: white;
+    height: 60px;
+    border: none;
+    color: #9E725A;
+
+}
+
+.icon_profile_button {
+    height: 75%;
+}
+
+.icon_feed_button {
+    height: 75%;
 }
