@@ -5,34 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kundenprofil - Paws for Pals</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style_kundenprofil.css">
-
-    <script src="https://unpkg.com/@supabase/supabase-js@2"> </script>
+    <title>Kundenprofil</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Istok+Web">
+    <link rel="stylesheet" href="styles/styles_kundenprofil.css">
+    
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
 </head>
 
 <body>
     <header>
-        <img class="icon_profile" src="\Logo\Icons_Paws-for-Pals_Profile.svg" alt="Icon Profile">
-        <h1>Kundenprofil</h1>
-        <p>Norina Bieler</p>
+        <div class="header">
+            <img class="icon_profile" src="\Logo\Icons_Paws-for-Pals_Profile.svg" alt="Icon Profile">
+            <h1>Angela De Toffol</h1>
+        </div>
     </header>
+
 
     <div class="container">
 
         <div class="patentiere">
             <h2>Meine Patentiere</h2>
             <h3>Fredy, Tapir</h3>
-            <p>Kosten: 15.00 CHF/Monat</p>
-            <p>Ort: Malaysia</p>
+            <p><strong>Kosten:</strong> 15.00 CHF/Monat</p>
+            <p><strong>Ort:</strong> Malaysia</p>
             <h3>Cindy, Zebra</h3>
-            <p>Kosten: 25.00 CHF/Monat</p>
-            <p>Ort: Südafrika</p>
+            <p><strong>Kosten:</strong> 25.00 CHF/Monat</p>
+            <p><strong>Ort:</strong> Südafrika</p>
         </div>
 
         <div class="persoenlich">
@@ -44,11 +44,17 @@
 
         <div class="kontakt">
             <h2>Dein Kontakt</h2>
-            <p>Organisation Paws for Pals</p>
+            <p><strong>Organisation Paws for Pals</strong></p>
             <p>Luzia Steiner</p>
             <p>luzia@pawsforpals.ch</p>
             <p>+41 81 823 38 47</p>
         </div>
 
     </div>
+
+    <div class="bottom-buttons">
+        <button class="feed-button"><img class="icon_feed_button" src="\Logo\Icons_Paws-for-Pals_Paw.svg" alt="Icon Profile"></button>
+        <button class="profile-button"><img class="icon_profile_button" src="\Logo\Icons_Paws-for-Pals_Profile.svg" alt="Icon Profile"></button>
+    </div>
+
 </body>
