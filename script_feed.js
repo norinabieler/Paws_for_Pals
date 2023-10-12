@@ -19,6 +19,12 @@ toggleButtons.forEach(button => {
     });
 });
 
+
+
+
+
+
+
 donateButtons.forEach(button => {
     button.addEventListener('click', function() {
         // Hier kannst du den Spendenprozess implementieren
@@ -34,3 +40,4 @@ function filterByContinent(continent) {
 // Dummyfunktionen für die Buttons unten
 document.getElementById('feed-button').addEventListener('click', () => alert('Zum Feed gehen'));
 document.getElementById('profile-button').addEventListener('click', () => alert('Zum Profil gehen'));
+
