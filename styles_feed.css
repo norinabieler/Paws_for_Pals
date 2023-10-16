@@ -171,3 +171,9 @@ summary p {
     padding: 10px;
     cursor: pointer;
 }
+
+summary::marker {
+    color: #B48871; /* You can change 'red' to the color of your choice */
+  }
+  
+  
