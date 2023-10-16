@@ -4,10 +4,10 @@ body {
 
 /*Hintergrundbild Tiger*/
     background-image: url('https://images.pexels.com/photos/6278664/pexels-photo-6278664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-    background-size:250%;
+    background-size:150%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: -330px -200px;
+    background-position: -300px -250px;
     font-family: 'Istok Web', sans-serif;
      
 }
@@ -56,18 +56,21 @@ button {
     color: rgb(255, 255, 255);
   }
 
+
 #abgerundeteForm {
-  width: 500px;
+  width: 800px;
   position: absolute;
- 
+  display: flex;
+  top: -270px;
+  left: -200px;
 }
 
 
 #logoPawsForPals {
-  width: 150px;
+  width: 140px;
   position: absolute;
   display: flex;
   justify-content: center;
-  top: -410px;
-  left: 120px;
+  top: -420px;
+  left: 130px;
 }
