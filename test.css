@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.text {
+    flex: 1;
+    padding: 10px;
+}
+
+.image {
+    max-width: 50%;
+    height: auto;
+    float: right; /* Bild rechts ausrichten */
+}
