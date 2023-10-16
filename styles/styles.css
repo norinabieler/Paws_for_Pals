@@ -13,12 +13,6 @@ body {
 
 }
 
-/*Titel Paws for Pals zentrieren und Farbe ändern*/
-h1 {
-    text-align: center;
-    color: white;
-  }
-
 
 /*Button Benutzername, Passwort und Anmeldung*/
 
@@ -57,4 +51,3 @@ button {
     font-family: 'Istok Web', sans-serif; /* Schriftart auf Istok Web ändern */
     font-weight: bold; 
   }
-  
