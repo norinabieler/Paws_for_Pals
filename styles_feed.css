@@ -155,14 +155,37 @@ summary p {
     cursor: pointer;
 }
 
-#bottom-buttons {
+.bottom-buttons {
+    margin-top: auto; /* Bringt die Containerinhalte ans untere Ende des Bildschirms */
     display: flex;
-    justify-content: space-between;
-    position: sticky;
-    bottom: 0;
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: none;
+    justify-content: center; /* Horizontal zentriert */
+    align-items: center; /* Vertikal zentriert */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.feed-button {
+    width: 50%;
+    background-color: #9E725A;
+    height: 60px;
+    border: none;
+    color: #F6E9D6;
+}
+
+.profile-button {
+    width: 50%;
+    background-color: white;
+    height: 60px;
+    border: none;
+    color: #9E725A;
+
+}
+
+.icon_profile_button {
+    height: 75%;
+}
+
+.icon_feed_button {
+    height: 75%;
 }
 
 #feed-button, #profile-button {
