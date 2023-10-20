@@ -10,58 +10,59 @@ font-family: 'Istok Web', sans-serif;
 */
 
 .backgroundPic {
-  width: max-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250%;
+  height: 250%;
+  object-fit: cover;
+  z-index: -1;
 }  
-
-header {
-  display: flex;  
-  justify-content: center;
-  height: 100%;
-  margin: 0;
-}
-
-.LogoPawsForPals {
-  width: 180px;
-}
+/* -> das responsive noch anders lösen!!!*/
 
 
- .input {
-    display: block; /* Macht die Elemente zu Blockelementen, damit sie untereinander angezeigt werden */
-    margin: 5px auto; /* Zentriert die Elemente horizontal */
-    padding: 20px; /* Abstand innerhalb der Elemente */
-    padding-left: 0px;
-    border: none; /* Entfernt die Rahmen um die Eingabefelder */ 
-    border-bottom: 2px solid #ffffff; /* Linie unterhalb des Eingabefelds in Braun (1px dick) */
-    background: transparent;
-    font-size: 25px;
-}
 
-
-button {
-    display: block; /* Macht die Buttons zu Blockelementen, damit sie untereinander angezeigt werden */
-    margin: 10px auto; /* Zentriert die Buttons horizontal und fügt Abstand hinzu */
-    padding: 4px 30px; /* Abstand innerhalb der Buttons */
-    background-color: white; /* Hintergrundfarbe auf Weiß setzen */
-    border: 2px solid  white; /* Entfernt die Rahmen um die Buttons */
-    border-radius: 30px;
-    color: #B48871; /* Textfarbe auf die gewünschte Farbe (Braun) setzen */
-    font-size: 30px;
-  }
-
-
-  ::placeholder {
-    color: rgb(255, 255, 255);
-  }
-
-
-.abgerundeteForm {
-  width: 800px;
+#Logo {
   display: flex;
   justify-content: center;
-  height: 100%;
-  margin: 0;
+  margin: 10px;
+}
+
+
+.input {
+  margin: 5px auto; /* Zentriert die Elemente horizontal */
+  padding: 20px; /* Abstand innerhalb der Elemente */
+  padding-left: 0px;
+  border: none; /* Entfernt die Rahmen um die Eingabefelder */ 
+  border-bottom: 2px solid #ffffff; /* Linie unterhalb des Eingabefelds in Braun (1px dick) */
+  background: transparent;
+  font-size: 25px;
+}
+
+button {
+  margin: 10px auto; /* Zentriert die Buttons horizontal und fügt Abstand hinzu */
+  padding: 4px 30px; /* Abstand innerhalb der Buttons */
+  background-color: white; /* Hintergrundfarbe auf Weiß setzen */
+  border: 2px solid  white; /* Entfernt die Rahmen um die Buttons */
+  border-radius: 30px;
+  color: #B48871; /* Textfarbe auf die gewünschte Farbe (Braun) setzen */
+  font-size: 30px;
+}
+
+::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.abgerundeteForm {
+width: 800px;
+display: flex;
+justify-content: center;
+height: 100%;
+margin: 0;
 
 }
+
+
 
 
 
