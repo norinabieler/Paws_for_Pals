@@ -24,94 +24,9 @@
 
 
 <!--Tierkacheln-->
-<!--Tier 1 test--> 
     <div id="feed">
-        <div class="Box">
-            <details class="Kacheln">
-                <summary>
-                    <h3>Caro</h3>
-                    <p>Hase, 10 CHF/Monat</p>
-                    <div class="Kacheln-image">
-                        <img src="images/Caro_Hase.jpeg" alt="Bild von Caro">
-                    </div>
-                    <span class="custom-summary-marker"></span>
-                </summary>
-                <p><b>Herkunft:</b> Kalifornien, Nordamerika</p>
-                <p><b>Alter</b> 2 Jahre</p>
-                <p><b>Geschlecht:</b> weiblich</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button onclick="showDetails(this)">Jetzt spenden</button>
-                <div style="display: none;">
-                    <p>Weitere Informationen über Caro...</p>
-                    <button onclick="donate()">Jetzt spenden</button>
-                </div>
-            </details>
-        </div>
-<!--Tier 2-->
-    <div class="Box">
-        <details class="Kacheln">
-            <summary>
-                <h3>Fredy</h3>
-                <p>Frettchen, 15 CHF/Monat</p>
-                <div class="Kacheln-image">
-                    <img src="images/Fredy_Frettchen.jpeg" alt="Bild von Fredy">
-                </div>
-            </summary>
-            <p><b>Herkunft:</b> Shenzen, Asien</p>
-            <p><b>Alter:</b> 3 Jahre</p>
-            <p><b>Geschlecht:</b>männlich</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Omnis deleniti reiciendis earum illum minima ea amet tempora officiis illo ipsum similique!</p>
-            <button onclick="showDetails(this)">Jetzt spenden</button>
-            <div style="display: none;">
-                <p>Weitere Informationen über Fredy...</p>
-                <button onclick="donate()">Jetzt spenden</button>
-            </div>
-        </details>
-    </div>
-<!--Tier 3-->
-    <div class="Box">
-        <details class="Kacheln">
-            <summary>
-                <h3>Aldo</h3>
-                <p>Löwe, 30 CHF/Monat</p>
-                <div class="Kacheln-image">
-                    <img src="images/Aldo_Löwe.jpeg" alt="Bild von Aldo">
-                </div>
-            </summary>
-            <p><b>Herkunft:</b> Serengeti, Afrika</p>
-            <p><b>Alter:</b> 8 Jahre</p>
-            <p><b>Geschlecht:</b> männlich</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis deleniti reiciendis earum illum minima ea amet tempora officiis illo ipsum similique!</p>
-            <button onclick="showDetails(this)">Jetzt spenden</button>
-            <div style="display: none;">
-                <p>Weitere Informationen über Aldo...</p>
-                <button onclick="donate()">Jetzt spenden</button>
-            </div>
-        </details>
-    </div>
-
-<!--Tier 4-->
-    <div class="Box">
-        <details class="Kacheln">
-             <summary>
-                <h3>Marlen</h3>
-                <p>Orang-Utan, 25 CHF/Monat</p>
-                <div class="Kacheln-image">
-                    <img src="images/Marlen_Orang-Utan.jpeg" alt="Bild von Marlen">
-                </div>
-            </summary>
-            <p><b>Herkunft:</b> Borneo, Asien</p>
-            <p><b>Alter:</b> 2 Monate </p>
-            <p><b>Geschlecht:</b> weiblich</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Omnis deleniti reiciendis earum illum minima ea amet tempora officiis illo ipsum similique!</p>
-            <button onclick="showDetails(this)">Jetzt spenden</button>
-            <div style="display: none;">
-                <p>Weitere Informationen über Marlen...</p>
-                <button onclick="donate()">Jetzt spenden</button>
-        </details>
-    </div>
+       
+   
 
     </div>
 
@@ -122,11 +37,14 @@
 
 
     <div class="bottom-buttons">
-        <button class="feed-button"><img class="icon_feed_button" src="\images\Icons_Paws-for-Pals_Paw.svg" alt="Icon Profile"></button>
-        <button class="profile-button"><img class="icon_profile_button" src="\images\Icons_Paws-for-Pals_Profile.svg" alt="Icon Profile"></button>
+        <button class="feed-button" id="feed-button"><img class="icon_feed_button" src="\images\Icons_Paws-for-Pals_Paw.svg" alt="Icon Profile"></button>
+        <button class="profile-button" id="profile-button"><img class="icon_profile_button" src="\images\Icons_Paws-for-Pals_Profile.svg" alt="Icon Profile"></button>
     </div>
 
-    <script src="\Paws_for_Pals\scripts\script_feed.js"></script>
+    <script src="scripts\script_feed.js" type="module"></script>
+    <script src="config\config.js" type="module"></script>
 
 </body>
 </html>
+
+
