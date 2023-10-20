@@ -90,3 +90,16 @@ h3 {
 .icon_feed_button {
     height: 75%;
 }
+
+
+
+/*Janas Programmierkünste*/
+#LöschButton {
+    margin: 10px auto; /* Zentriert die Buttons horizontal und fügt Abstand hinzu */
+    padding: 4px 30px; /* Abstand innerhalb der Buttons */
+    background-color:#B48871; /* Hintergrundfarbe auf Weiß setzen */
+    border: 2px solid  #B48871; /* Entfernt die Rahmen um die Buttons */
+    border-radius: 30px;
+    color: white; /* Textfarbe auf die gewünschte Farbe (Braun) setzen */
+    font-size: 20px;
+}
