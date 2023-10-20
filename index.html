@@ -6,34 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paws for Pals</title>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Istok+Web">
     <link rel="stylesheet" href="styles/styles.css">
+
     <script src="https://unpkg.com/@supabase/supabase-js@2"> </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
-
-
 </head>
 
 <body>
 
-    
-
    <header>
-        <!-- Hier das Logo Pawsforpals einfügen-->
-        <img class="LogoPawsForPals" src="images/Logo_Paws-for-Pals_brown-white.png" alt="Paws for Pals Logo">   
+        <div class="Logo">
+            <img class="PawsForPals" src="images/Logo_Paws-for-Pals_white.png" alt="Paws for Pals Logo">
+        </div>
+           
     </header>
 
     <div class="input">
+
         <input type="email" id="emailInput" placeholder="Benutzername" />
         <input type="password" id="passwordInput" placeholder="Passwort" />
+
         <button id="loginButton">Anmelden</button>
+
+        <div class="form">
+            <img class="abgerundeteForm" src="images/Abgerundete Form.png" alt="Form">
+        </div>
+
     </div>
 
-    <!-- Hier die abgerundete Form einfügen-->
-    <div>
-        <img class="abgerundeteForm" src="images/Abgerundete Form.png" alt="Paws for Pals Logo">
-    </div>
 
+
+    <!-- 
 
     <img class="backgroundPic" src="\images/pexels-jiří-mikoláš-6278664.jpg">
 
@@ -41,6 +46,7 @@
 
     <script type="module" src="../../00_setup/supabase.js"></script>
     <script type="module" src="2_password.js"></script>
+
 
     <script>
 
@@ -59,6 +65,8 @@
         });
         
     </script>
+
+ -->
 
     <script type="module" src="config/config.js"></script>
     <script type="module" src="scripts/script.js"></script>
