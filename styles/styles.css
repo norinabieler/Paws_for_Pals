@@ -1,42 +1,41 @@
 body {
-
-    background-color: white;
-
-/*Hintergrundbild Tiger*/
-    background-image: url('https://images.pexels.com/photos/6278664/pexels-photo-6278664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-    background-size:150%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: -300px -250px;
     font-family: 'Istok Web', sans-serif;
-     
 }
 
 
-/*Button Benutzername, Passwort und Anmeldung*/
+/*Hintergrundbild Tiger
+background-image: url('https://images.pexels.com/photos/6278664/pexels-photo-6278664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
 
-  div {
-    text-align: center; /* Zentriert den Inhalt horizontal */
-    position: absolute; /* Absolute Positionierung, um die Mitte unten zu erreichen */
-    left: 0;
-    right: 0;
-    top: 45%; /* In der vertikalen Mitte anfangen */
-    transform: translateY(50px)
+font-family: 'Istok Web', sans-serif;
+*/
 
-  }
+.backgroundPic {
+  width: max-content;
+}  
 
-  input[type="email"],
-input[type="password"] {
-  display: block; /* Macht die Elemente zu Blockelementen, damit sie untereinander angezeigt werden */
-  margin: 5px auto; /* Zentriert die Elemente horizontal */
-  padding: 20px; /* Abstand innerhalb der Elemente */
-  padding-left: 0px;
-  border: none; /* Entfernt die Rahmen um die Eingabefelder */
-  border-bottom: 2px solid #ffffff; /* Linie unterhalb des Eingabefelds in Braun (1px dick) */
-  background: transparent;
-  font-size: 25px;
-  font-family: 'Istok Web', sans-serif;
+header {
+  display: flex;  
+  justify-content: center;
+  height: 100%;
+  margin: 0;
 }
+
+.LogoPawsForPals {
+  width: 180px;
+}
+
+
+ .input {
+    display: block; /* Macht die Elemente zu Blockelementen, damit sie untereinander angezeigt werden */
+    margin: 5px auto; /* Zentriert die Elemente horizontal */
+    padding: 20px; /* Abstand innerhalb der Elemente */
+    padding-left: 0px;
+    border: none; /* Entfernt die Rahmen um die Eingabefelder */ 
+    border-bottom: 2px solid #ffffff; /* Linie unterhalb des Eingabefelds in Braun (1px dick) */
+    background: transparent;
+    font-size: 25px;
+}
+
 
 button {
     display: block; /* Macht die Buttons zu Blockelementen, damit sie untereinander angezeigt werden */
@@ -47,8 +46,6 @@ button {
     border-radius: 30px;
     color: #B48871; /* Textfarbe auf die gewünschte Farbe (Braun) setzen */
     font-size: 30px;
-    font-family: 'Istok Web', sans-serif; /* Schriftart auf Istok Web ändern */
-    font-weight: bold; 
   }
 
 
@@ -57,20 +54,14 @@ button {
   }
 
 
-#abgerundeteForm {
+.abgerundeteForm {
   width: 800px;
-  position: absolute;
-  display: flex;
-  top: -270px;
-  left: -200px;
-}
-
-
-#logoPawsForPals {
-  width: 140px;
-  position: absolute;
   display: flex;
   justify-content: center;
-  top: -420px;
-  left: 130px;
+  height: 100%;
+  margin: 0;
+
 }
+
+
+

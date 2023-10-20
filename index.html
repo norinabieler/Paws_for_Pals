@@ -10,48 +10,34 @@
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://unpkg.com/@supabase/supabase-js@2"> </script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
-  
+
 
 </head>
 
 <body>
 
-
-    <script type="module" src="config/config.js"></script>
-    <script type="module" src="scripts/script.js"></script>
-
-
-<!DOCTYPE html>
-<html lang="de">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SupaBase Auth - Password</title>
-    <script src="https://unpkg.com/@supabase/supabase-js@2"> </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
-</head>
-
-<body>
-
-    <h2 style="color:red" id="rootCheck">Checking location...</h2>
-
-
-
-
-<!-- Hier die abgerundete Form einfügen-->
-    <div>
-        <img id="abgerundeteForm" src="images/Abgerundete Form.png" alt="Paws for Pals Logo">
-    </div>
-
-
-    <div>
     
+
+   <header>
+        <!-- Hier das Logo Pawsforpals einfügen-->
+        <img class="LogoPawsForPals" src="images/Logo_Paws-for-Pals_brown-white.png" alt="Paws for Pals Logo">   
+    </header>
+
+    <div class="input">
         <input type="email" id="emailInput" placeholder="Benutzername" />
         <input type="password" id="passwordInput" placeholder="Passwort" />
         <button id="loginButton">Anmelden</button>
     </div>
+
+    <!-- Hier die abgerundete Form einfügen-->
+    <div>
+        <img class="abgerundeteForm" src="images/Abgerundete Form.png" alt="Paws for Pals Logo">
+    </div>
+
+
+    <img class="backgroundPic" src="\images/pexels-jiří-mikoláš-6278664.jpg">
+
+
 
     <script type="module" src="../../00_setup/supabase.js"></script>
     <script type="module" src="2_password.js"></script>
@@ -74,16 +60,9 @@
         
     </script>
 
+    <script type="module" src="config/config.js"></script>
+    <script type="module" src="scripts/script.js"></script>
 
-<!-- Hier das Logo Pawsforpals einfügen-->
-    <div>
-      <img id="logoPawsForPals" src="images/Logo_Paws-for-Pals_brown-white.png" alt="Paws for Pals Logo">   
-    </div>
-
-
-</body>
-
-</html>
 
 
 </body>
