@@ -1,53 +1,31 @@
 body {
     font-family: 'Istok Web', sans-serif;
+    background-color: #9E725A;
 }
 
-
-/*Hintergrundbild Tiger
-background-image: url('https://images.pexels.com/photos/6278664/pexels-photo-6278664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-
-font-family: 'Istok Web', sans-serif;
-*/
-
+/*
 .backgroundPic {
-  width: max-content;
-}  
-
-header {
-  display: flex;  
-  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  margin: 0;
+  object-fit: cover; /* Das Bild auf die Größe des Bildschirms skalieren
+  z-index: -1;
+}   */
+
+.Logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.LogoPawsForPals {
-  width: 180px;
+.PawsForPals {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
- .input {
-    display: block; /* Macht die Elemente zu Blockelementen, damit sie untereinander angezeigt werden */
-    margin: 5px auto; /* Zentriert die Elemente horizontal */
-    padding: 20px; /* Abstand innerhalb der Elemente */
-    padding-left: 0px;
-    border: none; /* Entfernt die Rahmen um die Eingabefelder */ 
-    border-bottom: 2px solid #ffffff; /* Linie unterhalb des Eingabefelds in Braun (1px dick) */
-    background: transparent;
-    font-size: 25px;
-}
-
-
-button {
-    display: block; /* Macht die Buttons zu Blockelementen, damit sie untereinander angezeigt werden */
-    margin: 10px auto; /* Zentriert die Buttons horizontal und fügt Abstand hinzu */
-    padding: 4px 30px; /* Abstand innerhalb der Buttons */
-    background-color: white; /* Hintergrundfarbe auf Weiß setzen */
-    border: 2px solid  white; /* Entfernt die Rahmen um die Buttons */
-    border-radius: 30px;
-    color: #B48871; /* Textfarbe auf die gewünschte Farbe (Braun) setzen */
-    font-size: 30px;
-  }
-
 
   ::placeholder {
     color: rgb(255, 255, 255);
