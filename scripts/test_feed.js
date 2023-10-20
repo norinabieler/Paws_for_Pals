@@ -1,3 +1,5 @@
+import { supa } from "../config/config.js";
+
 
 const toggleButtons = document.querySelectorAll('.toggle-details');
 const donateButtons = document.querySelectorAll('.donate-button');
@@ -45,15 +47,15 @@ document.getElementById('profile-button').addEventListener('click', () => alert(
 
 
 //supabase verknüpfung
-const supabase = createClient('Dhttps://rqqllrdsamxzjjulenht.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxcWxscmRzYW14empqdWxlbmh0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYzMzY3NDEsImV4cCI6MjAxMTkxMjc0MX0.JXkSXYVb1M4aHRet-UmScJNXogv_4QZzuzlkGqywA0Y');
-
 
 // 2. Funktion zum Abrufen und Einbinden von Daten aus Supabase
 async function fetchAndAppendFeedData() {
-  try {
-    const { data, error } = await supabase
+    const { data, error } = await supa
       .from('Animals') // Hier 'deine_tabelle' durch den Namen deiner Tabelle ersetzen
-      .select('*');
+      .select()
+
+
+      console.log(data)
 
     if (error) {
       console.error('Fehler beim Abrufen der Daten:', error);
@@ -64,32 +66,33 @@ async function fetchAndAppendFeedData() {
 
     // Daten aus der Supabase-Tabelle in deinen Feed einfügen
     data.forEach(tier => {
-      const tierElement = document.createElement('div');
-      tierElement.innerHTML = `
+      
+       let output = `
         <div class="Box">
             <details class="Kacheln">
                 <summary>
-                    <h3>${tier.name}</h3>
-                    <p>${tier.herkunft}, ${tier.preis}/Monat</p>
+                    <h3>${tier.Name}</h3>
+                    <p>${tier.Herkunft}, ${tier.Preis}/Monat</p>
+                    <div class="Kacheln-image">
+                    <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
+                </div>
                 </summary>
-                <p><b>Herkunft:</b> ${tier.herkunft}</p>
-                <p><b>Alter:</b> ${tier.alter}</p>
-                <p><b>Geschlecht:</b> ${tier.geschlecht}</p>
-                <p>${tier.text}</p>
+                <p><b>Herkunft:</b> ${tier.Herkunft}</p>
+                <p><b>Alter:</b> ${tier.Alter}</p>
+                <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
+                <p>${tier.Text}</p>
                 <button onclick="showDetails(this)">Jetzt spenden</button>
                 <div style="display: none;">
-                    <p>Weitere Informationen über ${tier.name}...</p>
+                    <p>Weitere Informationen über ${tier.Name}...</p>
                     <button onclick="donate()">Jetzt spenden</button>
                 </div>
             </details>
         </div>
       `;
 
-      feedContainer.appendChild(tierElement);
+      feedContainer.innerHTML += output;
     });
-  } catch (error) {
-    console.error('Ein Fehler ist aufgetreten:', error);
-  }
+
 }
 
 // Rufe die Funktion auf, um die Daten aus Supabase zu laden und in den Feed einzufügen
