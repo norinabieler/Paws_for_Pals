@@ -3,12 +3,6 @@ body {
 }
 
 
-/*Hintergrundbild Tiger
-background-image: url('https://images.pexels.com/photos/6278664/pexels-photo-6278664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-
-font-family: 'Istok Web', sans-serif;
-*/
-
 .backgroundPic {
   position: absolute;
   top: 0;
@@ -20,14 +14,11 @@ font-family: 'Istok Web', sans-serif;
 }  
 /* -> das responsive noch anders lösen!!!*/
 
-
-
 #Logo {
   display: flex;
   justify-content: center;
   margin: 10px;
 }
-
 
 .input {
   margin: 5px auto; /* Zentriert die Elemente horizontal */
