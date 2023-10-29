@@ -39,9 +39,14 @@ function filterByContinent(continent) {
     alert(`Filtern nach Kontinent: ${continent}`);
 }
 
-// Dummyfunktionen für die Buttons unten
-document.getElementById('feed-button').addEventListener('click', () => alert('Zum Feed gehen'));
-document.getElementById('profile-button').addEventListener('click', () => alert('Zum Profil gehen'));
+// Funktion für Buttons Navigation (Wechseln der Unterseite)
+document.getElementById('feed-button').addEventListener('click', () => {
+    window.location.href = 'feed.html';
+});
+
+document.getElementById('profile-button').addEventListener('click', () => {
+    window.location.href = 'kundenprofil.html';
+});
 
 
 
