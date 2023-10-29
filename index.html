@@ -5,72 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paws for Pals</title>
-
+    <title>Startseite</title>
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Istok+Web">
     <link rel="stylesheet" href="styles/styles.css">
-
-    <script src="https://unpkg.com/@supabase/supabase-js@2"> </script>
+    
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
 </head>
 
 <body>
 
-   <header>
-        <div class="Logo">
-            <img class="PawsForPals" src="images/Logo_Paws-for-Pals_white.png" alt="Paws for Pals Logo">
-        </div>
-           
-    </header>
-
-    <div class="input">
-
-        <input type="email" id="emailInput" placeholder="Benutzername" />
-        <input type="password" id="passwordInput" placeholder="Passwort" />
-
-        <button id="loginButton">Anmelden</button>
-
-        <div class="form">
-            <img class="abgerundeteForm" src="images/Abgerundete Form.png" alt="Form">
-        </div>
-
-    </div>
-
-
-
-    <!-- 
-
-    <img class="backgroundPic" src="\images/pexels-jiří-mikoláš-6278664.jpg">
-
-
-
-    <script type="module" src="../../00_setup/supabase.js"></script>
-    <script type="module" src="2_password.js"></script>
-
-
-    <script>
-
-        // script prüft, ob wir uns auf der root des servers befinden
-        
-
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const rootCheckElem = document.getElementById('rootCheck');
     
-            if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
-                rootCheckElem.textContent = "You are on the root of the server.";
-                rootCheckElem.style.display = "none"; // Hide it if you don't want any message on the root
-            } else {
-                rootCheckElem.innerHTML = 'Authentication funktioniert nur auf der Root des Servers! Das ist nicht hier, sondern <a href="/"> da </a>';
-            }
-        });
-        
-    </script>
+        <div id="Logo">
+            <img src="images\Logo_Paws-for-Pals_white.png" alt="Logo Paws For Pals">
+        </div>
 
- -->
+        <div id="Input">
 
-    <script type="module" src="config/config.js"></script>
-    <script type="module" src="scripts/script.js"></script>
+            <input type="email" id="emailInput" placeholder="E-Mail " />
+            <input type="password" id="passwordInput" placeholder="Passwort" />
+            <button id="loginButton">Anmelden</button>
 
+        </div>
+
+
+
+ <script src="scripts\script.js" type="module"></script>
+ <script src="config\config.js" type="module"></script>
 
 
 </body>
