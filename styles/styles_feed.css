@@ -155,15 +155,20 @@ summary p {
     cursor: pointer;
 }
 
-.bottom-buttons {
-    margin-top: auto; /* Bringt die Containerinhalte ans untere Ende des Bildschirms */
+#bottom-buttons {
+    position: fixed; /* Stellt die Position auf 'fixed' ein */
+    bottom: 0; /* Befestigt das Element am unteren Rand des Bildschirms */
+    left: 0; /* Optional: Befestigt das Element am linken Rand des Bildschirms */
+    width: 100%; /* Füllt die gesamte Bildschirmbreite */
     display: flex;
     justify-content: center; /* Horizontal zentriert */
     align-items: center; /* Vertikal zentriert */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: white; /* Hintergrundfarbe für bessere Sichtbarkeit hinzufügen */
+    z-index: 999; /* Stelle sicher, dass es über anderen Inhalten angezeigt wird */
 }
 
-.feed-button {
+#feed-button {
     width: 50%;
     background-color: #9E725A;
     height: 60px;
@@ -171,7 +176,7 @@ summary p {
     color: #F6E9D6;
 }
 
-.profile-button {
+#profile-button {
     width: 50%;
     background-color: white;
     height: 60px;
