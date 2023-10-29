@@ -1,6 +1,5 @@
 body {
     font-family: 'Istok Web', sans-serif;
-    max-width: 100%;
     background-color: #9E725A;
 }
 
@@ -17,7 +16,6 @@ body {
 
 
 
-
 /* ________________________________________________________Anmeldung________________________________________________________________ */
 
 
@@ -26,7 +24,9 @@ body {
   flex-direction: column; /* Elemente in einer Spalte anordnen */
   align-items: center; /* Horizontal zentrieren */
   text-align: center; /* Text in den Elementen zentrieren */
-  margin-top: 50px;
+  margin-top: 120px;
+  font-size: 20px;
+  color: #F6E9D6;
 }
 
 #emailInput,
@@ -38,13 +38,15 @@ body {
     margin-bottom: 10px; /* Abstand zwischen den Eingabefeldern */
     background-color: #F6E9D6;
     color: #9E725A;
+    font-size: 20px;
 }
 
 ::placeholder {
   color: #9E725A;
 }
 
-#loginButton {
+#loginButton,
+#registButton {
     background-color: white;
     color: #9E725A;
     border: none;
@@ -52,8 +54,16 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    font-size: 20px;
 }
 
+#registButton{
+  margin-top: 0;
+}
+
+#loginButton {
+  margin-bottom: 30px;
+}
 
 /* ________________________________________________________Anmeldung________________________________________________________________ */
 
