@@ -113,20 +113,6 @@ p{
     color: #B48871;
 }
 
-HIER BEARBEITEN WEGEN UNTERER NAVIGATION
-button {
-    background-color: #B48871;
-    display: inline-block;
-    padding: 1%;
-    color: #fff;
-    cursor: pointer;
-    border-top-left-radius: 30px; /* Oben links */
-    border-top-right-radius: 30px; /* Oben rechts */
-    border-bottom-left-radius: 30px; /* Unten links */
-    border-bottom-right-radius: 30px;
-    border: none; 
-} 
-
 button:hover{
     color: #4a1509;
 }
@@ -154,6 +140,8 @@ summary p {
     padding: 5px 10px;
     cursor: pointer;
 }
+
+/*______________________________navigation______________________________________________*/
 
 #bottom-buttons {
     position: fixed; /* Stellt die Position auf 'fixed' ein */
