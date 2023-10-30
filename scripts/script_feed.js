@@ -86,10 +86,10 @@ async function fetchAndAppendFeedData() {
                 <p><b>Alter:</b> ${tier.Alter}</p>
                 <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
                 <p>${tier.Beschreibung}</p>
-                <button onclick="showDetails(this)">Jetzt spenden</button>
+                <button class="spenden" onclick="moveToOtherDocument(this)">Ich will spenden</button>
                 <div style="display: none;">
                     <p>Weitere Informationen über ${tier.Name}...</p>
-                    <button onclick="donate()">Jetzt spenden</button>
+                    <button class="spenden" onclick="moveToOtherDocument(this)">Ich will spenden</button>
                 </div>
             </details>
         </div>
@@ -106,3 +106,33 @@ const { data, error } = await supa.from('Animals').select(`
   Kategorien_Id (Kontinent)
 `)
 
+
+
+
+
+// Code Norina um auf Kundenprofil zu verschieben
+
+function moveToOtherDocument(button) {
+    // Finde das Elternelement der ausgewählten Kachel
+    const spenden = button.closest('.Box');
+
+    if (spenden) {
+        // Kopiere die ausgewählte Kachel
+        const clonedBox = spenden.cloneNode(true);
+        spenden.remove();
+
+        // Finde das Zielfenster oder den Zielframe, in den du die Kachel verschieben möchtest
+        // Du musst die URL des Zieldokuments anpassen
+        const targetWindow = window.open('kundenprofil.html');
+
+        // Überprüfe, ob das Zielfenster erfolgreich geöffnet wurde
+        if (targetWindow) {
+            // Füge die kopierte Kachel dem Zielfenster hinzu
+            targetWindow.document.body.patentiere.appendChild(clonedBox);
+        } else {
+            alert('Das Zielfenster konnte nicht geöffnet werden.');
+        }
+    } else {
+        alert('Patentier nicht gefunden.');
+    }
+}
