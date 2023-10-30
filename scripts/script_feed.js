@@ -57,7 +57,7 @@ document.getElementById('profile-button').addEventListener('click', () => {
 async function fetchAndAppendFeedData() {
     const { data, error } = await supa
       .from('Animals') // Hier 'deine_tabelle' durch den Namen deiner Tabelle ersetzen
-      .select()
+      .select('Name, Tierart, Preis, Picture, Herkunft, Kategorie_ID(Kontinent), Alter, Geschlecht, Beschreibung, id')
 
 
       console.log(data)
@@ -82,14 +82,14 @@ async function fetchAndAppendFeedData() {
                     <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
                 </div>
                 </summary>
-                <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID}</p>
+                <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
                 <p><b>Alter:</b> ${tier.Alter}</p>
                 <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
                 <p>${tier.Beschreibung}</p>
-                <button class="spenden" onclick="moveToOtherDocument(this)">Ich will spenden</button>
+                <button class="spenden" onclick="moveToOtherDocument()">Ich will spenden</button>
                 <div style="display: none;">
                     <p>Weitere Informationen über ${tier.Name}...</p>
-                    <button class="spenden" onclick="moveToOtherDocument(this)">Ich will spenden</button>
+                    <button class="spenden" onclick="moveToOtherDocument(${tier.id})">Ich will spenden</button>
                 </div>
             </details>
         </div>
@@ -110,7 +110,7 @@ const { data, error } = await supa.from('Animals').select(`
 
 
 
-// Code Norina um auf Kundenprofil zu verschieben
+// Funktion
 
 function moveToOtherDocument(button) {
     // Finde das Elternelement der ausgewählten Kachel
