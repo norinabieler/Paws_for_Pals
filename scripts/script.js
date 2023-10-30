@@ -12,13 +12,13 @@ async function login() {
     if (error) {
         console.error("Error during login: ", error.message);
     } else {
+        window.location.href = 'feed.html';
         console.log("Logged in as ", email);
     }
 }
 
-document.getElementById('loginButton').addEventListener('click', () => {
-    window.location.href = 'feed.html';
-});
+document.getElementById('loginButton').addEventListener('click', login);
+
 
 // Function to sign up using email and password
 async function signUp() {
