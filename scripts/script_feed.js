@@ -82,7 +82,7 @@ async function fetchAndAppendFeedData() {
                     <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
                 </div>
                 </summary>
-                <p><b>Herkunft:</b> ${tier.Herkunft},</p>
+                <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID}</p>
                 <p><b>Alter:</b> ${tier.Alter}</p>
                 <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
                 <p>${tier.Beschreibung}</p>
