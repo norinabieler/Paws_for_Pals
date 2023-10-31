@@ -11,17 +11,22 @@ body {
 
 /* _________________________________________Header_____________________________ */
 
-.header {
-    margin: 15px;
-    vertical-align: middle;
+header {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     font-style: bold;
 }
 
-.icon_profile {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
+#logo {
+    display: flex;
+    justify-content: center; /* Horizontale Zentrierung */
+    margin-top: 50px;
+}
+
+#logo img {
+    max-width: 15%; /* Begrenzt die Breite auf ca. 50px */
+    height: auto; /* Behält das Seitenverhältnis bei */
 }
 
 .name {
