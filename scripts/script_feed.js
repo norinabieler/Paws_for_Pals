@@ -107,32 +107,3 @@ const { data, error } = await supa.from('Animals').select(`
 `)
 
 
-
-
-
-// Funktion
-
-function moveToOtherDocument(button) {
-    // Finde das Elternelement der ausgewählten Kachel
-    const spenden = button.closest('.Box');
-
-    if (spenden) {
-        // Kopiere die ausgewählte Kachel
-        const clonedBox = spenden.cloneNode(true);
-        spenden.remove();
-
-        // Finde das Zielfenster oder den Zielframe, in den du die Kachel verschieben möchtest
-        // Du musst die URL des Zieldokuments anpassen
-        const targetWindow = window.open('kundenprofil.html');
-
-        // Überprüfe, ob das Zielfenster erfolgreich geöffnet wurde
-        if (targetWindow) {
-            // Füge die kopierte Kachel dem Zielfenster hinzu
-            targetWindow.document.body.patentiere.appendChild(clonedBox);
-        } else {
-            alert('Das Zielfenster konnte nicht geöffnet werden.');
-        }
-    } else {
-        alert('Patentier nicht gefunden.');
-    }
-}
