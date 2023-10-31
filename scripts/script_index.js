@@ -24,9 +24,6 @@ toggleButtons.forEach(button => {
 
 
 
-
-
-
 donateButtons.forEach(button => {
     button.addEventListener('click', function() {
         // Hier kannst du den Spendenprozess implementieren
