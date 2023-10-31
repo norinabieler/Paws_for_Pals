@@ -12,13 +12,9 @@ async function login() {
     if (error) {
         console.error("Error during login: ", error.message);
     } else {
-        window.location.href = 'feed.html';
         console.log("Logged in as ", email);
     }
 }
-
-document.getElementById('loginButton').addEventListener('click', login);
-
 
 // Function to sign up using email and password
 async function signUp() {
@@ -33,3 +29,23 @@ async function signUp() {
         console.log("Signed up as ", email);
     }
 }
+
+// Function to update user status
+function updateUserStatus(user) {
+    const userStatusElement = document.getElementById('userStatus');
+
+    if (user) {
+        userStatusElement.textContent = `Authenticated as: ${user.email}`;
+    } else {
+        userStatusElement.textContent = "Not authenticated.";
+    }
+}
+
+// Check and display the initial user status
+const initialUser = supa.auth.user();
+updateUserStatus(initialUser);
+
+// Event listeners for the buttons
+document.getElementById('loginButton').addEventListener('click', login);
+
+document.getElementById('signupButton').addEventListener('click', signUp);
