@@ -71,14 +71,16 @@ async function fetchAndAppendFeedData() {
       
        let output = `
         <div class="Box">
-            <details class="Kacheln">
-                <summary>
-                    <h3>${tier.Name}</h3>
-                    <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
-                    <div class="Kacheln-image">
-                    <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
-                </div>
-                </summary>
+            <details class="kacheln">
+            <summary>
+            <div class="Kacheln-image">
+              <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
+            </div>
+            <div class="textvorschau">
+              <h3>${tier.Name}</h3>
+              <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
+            </div>
+          </summary>
                 <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
                 <p><b>Alter:</b> ${tier.Alter}</p>
                 <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
