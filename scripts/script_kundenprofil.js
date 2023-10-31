@@ -10,7 +10,31 @@ document.getElementById('profile-button').addEventListener('click', () => {
 });
 
 
-// FUNKTIONIERT SO NOCH NICHT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Funktion zum Abmelden
+async function logout() {
+
+    //Add console log if function works
+    console.log("Logout ausgeführt");
+
+
+    const { error } = await supa.auth.signOut();
+  
+    if (!error) {
+      alert("Erfolgreich abgemeldet.");
+      window.location.href = "login.html"; // Optional: Nach der Abmeldung zur Login-Seite weiterleiten
+    } else {
+      alert("Fehler beim Abmelden: " + error.message);
+    }
+  }
+  
+  // Event-Listener für den Abmelde-Button
+  const logoutButton = document.getElementById("logoutButton");
+  if (logoutButton) {
+    logoutButton.addEventListener("click", logout);
+  }
+
+
+/* // FUNKTIONIERT SO NOCH NICHT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         // Funktion zum Löschen eines Listenelements
         function deleteListItem(event) {
@@ -22,4 +46,4 @@ document.getElementById('profile-button').addEventListener('click', () => {
         const deleteButtons = document.querySelectorAll(".deleteButton");
         deleteButtons.forEach(button => {
             button.addEventListener("click", deleteListItem);
-        });
+        }); */
