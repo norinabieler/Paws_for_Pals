@@ -1,44 +1,54 @@
 <!DOCTYPE html>
-<html lang="de">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startseite</title>
     
+    <title>Tier-Feed</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Istok+Web">
-    <link rel="stylesheet" href="styles/styles.css">
-    
+    <link rel="stylesheet" href="styles\styles_index.css">
+
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.29.0/dist/umd/supabase.min.js"></script>
 </head>
 
 <body>
+    <div class="continent-buttons">
+        <span class="continent-button" onclick="filterByContinent('Afrika')">Afrika</span>
+        <span class="continent-button" onclick="filterByContinent('Asien')">Asien</span>
+        <span class="continent-button" onclick="filterByContinent('Australien')">Australien</span>
+    </div>
 
-        <div id="Logo">
-            <img src="images\Logo_Paws-for-Pals_white.png" alt="Logo Paws For Pals">
-        </div>
-
-        <div id="Input">
-
-            <input type="email" id="emailInput" placeholder="E-Mail " />
-            <input type="password" id="passwordInput" placeholder="Passwort" />
-
-            <div id="buttons">
-            <button id="loginButton">Anmelden</button>
-            <button id="signupButton">Registrieren</button>
-            </div>
-
-        </div>
+    <div class="continent-buttons">
+        <span class="continent-button" onclick="filterByContinent('Nordamerika')">Nordamerika</span>
+        <span class="continent-button" onclick="filterByContinent('Aüdamerika')">Südamerika</span>
+        <span class="continent-button" onclick="filterByContinent('Europa')">Europa</span>
+    </div>
 
 
+<!--Tierkacheln-->
+    <div id="feed">
+       
+   
 
- <script src="scripts\script.js" type="module"></script>
- <script src="config\config.js" type="module"></script>
+    </div>
 
+    <!-- <div id="bottom-buttons">
+        <button id="feed-button">Feed</button>
+        <button id="profile-button">Mein Profil</button>
+    </div> -->
+
+
+    <div id="bottom-buttons">
+        <button id="feed-button"><img class="icon_feed_button" src="\images\Icons_Paws-for-Pals_Paw.svg" alt="Icon Profile"></button>
+        <button id="profile-button"><img class="icon_profile_button" src="\images\Icons_Paws-for-Pals_Profile.svg" alt="Icon Profile"></button>
+    </div>
+
+    <script src="scripts\script_index.js" type="module"></script>
+    <script src="config\config.js" type="module"></script>
 
 </body>
-
 </html>
+
 
