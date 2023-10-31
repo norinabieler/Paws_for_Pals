@@ -1,5 +1,27 @@
 import { supa } from "../config/config.js";
 
+ // Function to update user status
+ function updateUserStatus(user) {
+  const userStatusElement = document.getElementById('userStatus');
+
+  if (user) {
+      userStatusElement.textContent = `${user.email}`;
+  } else {
+      userStatusElement.textContent = `Not authenticated.`;
+  }
+} 
+
+// Check and display the initial user status
+const initialUser = supa.auth.user();
+updateUserStatus(initialUser);
+
+
+
+
+
+
+
+
 
 document.getElementById('feed-button').addEventListener('click', () => {
     window.location.href = 'feed.html';
