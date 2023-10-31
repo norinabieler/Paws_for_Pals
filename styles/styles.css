@@ -45,8 +45,9 @@ body {
   color: #9E725A;
 }
 
+
 #loginButton,
-#registButton {
+#signupButton {
     background-color: white;
     color: #9E725A;
     border: none;
@@ -57,7 +58,7 @@ body {
     font-size: 20px;
 }
 
-#registButton{
+#signupButton{
   margin-top: 0;
 }
 
