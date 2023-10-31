@@ -9,4 +9,15 @@ const supa = supabase.createClient(supabaseUrl, supabaseKey, {
     },
 });
 
+async function checkAuthenticationAndRedirect() {
+    const user = supabase.auth.user();
+  
+    if (!user) {
+      window.location.href = "login.html"; // Redirect to login.html if the user is not authenticated
+    }
+  }
+  
+  // Use the window.onload event to call the function when the document is loaded
+  window.onload = checkAuthenticationAndRedirect;
+
 export { supa }
