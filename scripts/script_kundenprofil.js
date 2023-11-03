@@ -24,7 +24,7 @@ updateUserStatus(initialUser);
 
 
 document.getElementById('feed-button').addEventListener('click', () => {
-    window.location.href = 'feed.html';
+    window.location.href = 'index.html';
 });
 
 document.getElementById('profile-button').addEventListener('click', () => {
@@ -54,6 +54,8 @@ async function logout() {
   if (logoutButton) {
     logoutButton.addEventListener("click", logout);
   }
+
+
 
 
 /* // FUNKTIONIERT SO NOCH NICHT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
