@@ -56,59 +56,6 @@ document.getElementById('profile-button').addEventListener('click', () => {
 
 
 
-//Filtern 
-
-
-
-
-async function filterByContinent(Kontinent) {
-  const { data, error } = await supa
-    .from('Animals')
-    .select('Name, Tierart, Preis, Picture, Herkunft, Kategorie_ID(Kontinent), Alter, Geschlecht, Beschreibung, id')
-    .eq('Kategorie_ID.Kontinent', Kontinent); // Hier filtern wir nach dem ausgewählten Kontinent
-
-  if (error) {
-    console.error('Fehler beim Filtern nach Kontinent:', error);
-    return;
-  }
-
-  const feedContainer = document.getElementById('feed'); // Hier 'feed' durch die ID deines Feed-Containers ersetzen
-  feedContainer.innerHTML = ''; // Leere den Feed-Container, bevor du die neuen Daten hinzufügst
-
-  // Daten aus der Supabase-Tabelle in deinen Feed einfügen
-  data.forEach(tier => {
-    let output = `
-    <div class="Box">
-    <details class="kacheln">
-    <summary>
-    <div class="Kacheln-image">
-      <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
-    </div>
-    <div class="textvorschau">
-      <h3>${tier.Name}</h3>
-      <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
-    </div>
-  </summary>
-        <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
-        <p><b>Alter:</b> ${tier.Alter}</p>
-        <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
-        <p>${tier.Beschreibung}</p>
-        <button class="spenden" onclick="moveToOtherDocument()">Ich will spenden</button>
-        <div style="display: none;">
-            <p>Weitere Informationen über ${tier.Name}...</p>
-            <button class="spenden" onclick="moveToOtherDocument(${tier.id})">Ich will spenden</button>
-        </div>
-    </details>
-</div>
-`;
-
-    feedContainer.innerHTML += output;
-  });
-}
-
-
-
-
 
 //supabase verknüpfung
 
@@ -166,6 +113,52 @@ async function fetchAndAppendFeedData() {
 const { data, error } = await supa.from('Animals').select(`
   Kategorien_Id (Kontinent)
 `)*/
+
+
+//Filtern 
+
+// Änderung in der filterByContinent-Funktion
+async function filterByContinent(Kontinent) {
+  const { data, error } = await supa
+    .from('Animals')
+    .select('Name, Tierart, Preis, Picture, Herkunft, Kategorie_ID(Kontinent), Alter, Geschlecht, Beschreibung, id')
+    .eq('Kategorie_ID.Kontinent', Kontinent);
+
+  if (error) {
+    console.error('Fehler beim Filtern nach Kontinent:', error);
+    return;
+  }
+
+  const feedContainer = document.getElementById('feed');
+  feedContainer.innerHTML = '';
+
+  data.forEach(tier => {
+    let output = `
+      <div class="Box">
+        <details class="kacheln">
+          <summary>
+            <div class="Kacheln-image">
+              <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
+            </div>
+            <div class="textvorschau">
+              <h3>${tier.Name}</h3>
+              <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
+            </div>
+          </summary>
+          <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
+          <p><b>Alter:</b> ${tier.Alter}</p>
+          <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
+          <p>${tier.Beschreibung}</p>
+          <button class="spenden" onclick="moveToOtherDocument(${tier.id})">Ich will spenden</button>
+        </details>
+      </div>
+    `;
+
+    feedContainer.innerHTML += output;
+  });
+}
+
+
 
 
 
