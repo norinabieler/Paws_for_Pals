@@ -31,10 +31,14 @@ body {
     padding: 5px;
     color: #fff;
     cursor: pointer;
+    font-size: 150%;
+    transition: font-size 0.4s;
 }
 
 .continent-button:hover{
+    font-size: 180%;
     color: #4a1509;
+    
 }
 
 .kacheln {
@@ -118,11 +122,10 @@ h3{
 
 p{
     color: #B48871;
+    font-size: 150%;
 }
 
-button:hover{
-    color: #4a1509;
-}
+
 
 summary p {
     font-weight:300;
@@ -210,4 +213,22 @@ summary::marker {
         min-width: 100%;
     }
     /* Add any other styles for smartphone view here */
+  }
+
+  button.spenden{
+    font-size: 150%;
+    background-color: #B48871;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    transition: font-size 0.4;
+  }
+
+  button.spenden:hover{
+    color: #B48871;
+    background-color: white;
+    border-color: #B48871;
+    border: 2px solid;
+    cursor: pointer;
   }
