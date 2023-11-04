@@ -48,6 +48,8 @@ function updateUserStatus(user) {
     }
 } 
 
+
+
 // Check and display the initial user status
 const initialUser = supa.auth.user();
 updateUserStatus(initialUser);
