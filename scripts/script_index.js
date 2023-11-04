@@ -94,10 +94,10 @@ async function fetchAndAppendFeedData() {
                 <p><b>Alter:</b> ${tier.Alter}</p>
                 <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
                 <p>${tier.Beschreibung}</p>
-                <button class="spenden" onclick="moveToOtherDocument()">Ich will spenden</button>
+                <button class="spenden">Ich will spenden</button>
                 <div style="display: none;">
                     <p>Weitere Informationen über ${tier.Name}...</p>
-                    <button class="spenden" onclick="moveToOtherDocument(${tier.id})">Ich will spenden</button>
+                    <button class="spenden">Ich will spenden</button>
                 </div>
             </details>
         </div>
@@ -134,7 +134,7 @@ async function filterByContinent(Kontinent) {
 
   data.forEach(tier => {
     let output = `
-      <div class="Box">
+      <div class="Box" id="Box">
         <details class="kacheln">
           <summary>
             <div class="Kacheln-image">
@@ -149,7 +149,7 @@ async function filterByContinent(Kontinent) {
           <p><b>Alter:</b> ${tier.Alter}</p>
           <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
           <p>${tier.Beschreibung}</p>
-          <button class="spenden" onclick="moveToOtherDocument(${tier.id})">Ich will spenden</button>
+          <button class="spenden" id="spenden">Ich will spenden</button>
         </details>
       </div>
     `;
@@ -160,9 +160,4 @@ async function filterByContinent(Kontinent) {
 
 
 
-
-
-
-
-
-
+// Daten verschieben
