@@ -149,7 +149,7 @@ async function filterByContinent(Kontinent) {
           <p><b>Alter:</b> ${tier.Alter}</p>
           <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
           <p>${tier.Beschreibung}</p>
-          <button class="spenden" id="spenden">Ich will spenden</button>
+          <button class="spenden" data-index="${index}">Ich will spenden</button>
         </details>
       </div>
     `;
@@ -160,4 +160,51 @@ async function filterByContinent(Kontinent) {
 
 
 
-// Daten verschieben
+
+const feedContainer = document.getElementById('feedContainer');
+
+// Überprüfe, ob das Element gefunden wurde, bevor du den Event Listener hinzufügst
+if (feedContainer) {
+  // Hier fügst du den Event Listener hinzu
+  feedContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('spenden')) {
+      const index = event.target.getAttribute('data-index');
+      const selectedTier = data[index];
+
+      if (selectedTier) {
+        const tierName = selectedTier.Name;
+        console.log(`Geklicktes Element: ${tierName}`);
+      }
+    }
+  });
+}
+
+
+
+
+// Einem Tier eine User ID zuordnen
+//const userID = initialUser.id; // Hier die UserID des angemeldeten Benutzers einsetzen
+//const AnimalToAssign = {
+  // Hier die Daten des Elements, das du dem Benutzer zuordnen möchtest
+//  id: await supabase.from('Animals')
+  // Weitere Datenfelder können hier hinzugefügt werden
+//};
+
+// Funktion zum Zuordnen des Elements zum Benutzer
+//async function assignAnimalToUser() {
+  // Aktualisiere das Tier mit der UserID des Spenders
+//  const { data, error } = await supabase.from('Animals').upsert([
+ //   {
+  //    User_Id: userID,
+  //    ...AnimalToAssign,
+  //  },
+  //]);
+
+  //if (error) {
+  //  console.error('Fehler beim Zuordnen des Elements zum Benutzer:', error);
+  //} else {
+  //  console.log('Element erfolgreich zugeordnet:', data);
+  //}
+//}
+
+//assignAnimalToUser();
