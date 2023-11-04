@@ -15,7 +15,7 @@ import { supa } from "../config/config.js";
 const initialUser = supa.auth.user();
 updateUserStatus(initialUser);
 
-
+console.log(initialUser.id);
 
 
 
@@ -56,8 +56,39 @@ async function logout() {
   }
 
 
+// Hier Funktion um Patentiere einzufügen 
+// Abrufen und Einbinden von Daten aus Supabase
 
+async function fetchAndAppendFeedData() {
+  const { data, error } = await supa
+    .from('Animals') // Hier 'deine_tabelle' durch den Namen deiner Tabelle ersetzen
+    .select('Name, Tierart, Preis, Herkunft, Kategorie_ID(Kontinent), Alter, Geschlecht, id')
 
+    console.log(data)
+
+  if (error) {
+    console.error('Fehler beim Abrufen der Daten:', error);
+    return;
+  }
+
+  const patentierContainer = document.getElementById('patentiere'); 
+
+  // Daten aus der Supabase-Tabelle in deinen Feed einfügen
+  data.forEach(tier => {
+    
+     let output = `
+      <div id="patentiere">
+            <h3>${tier.Name}</h3>
+            <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
+            <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
+            <p><b>Alter:</b> ${tier.Alter}</p>
+            <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
+      </div>
+    `;
+
+    patentierContainer.innerHTML += output;
+  });
+}
 
 
 
