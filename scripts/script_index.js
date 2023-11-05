@@ -22,17 +22,35 @@ toggleButtons.forEach(button => {
 });
 
 
-
-
 donateButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        // Hier kannst du den Spendenprozess implementieren
-        alert('Vielen Dank für Ihre Spende!');
+    button.addEventListener('click', async function() {
+                // Stelle sicher, dass der Benutzer angemeldet ist und erhalte die User-ID
+                const user = supabase.auth.user();
+                if (user) {
+                    const userId = user.id; // Hier wird die User-ID abgerufen
+
+                    // Erstelle ein Objekt, das du in der Patentier-Tabelle speichern möchtest
+                    const donationData = {
+                        userId: userId,
+                        // Andere benötigte Informationen für die Spende
+                    };
+        
+                    // Sende eine Anfrage an deine Supabase-Datenbank, um die User-ID in der Patentier-Tabelle zu speichern
+                    const { data, error } = await supabase
+                        .from('Animals') // Ersetze 'Patentier-Tabelle' durch den tatsächlichen Tabellennamen
+                        .upsert([donationData]); // 'upsert' wird verwendet, um die Daten zu aktualisieren oder einzufügen
+        
+                    if (error) {
+                        console.error('Fehler beim Speichern der User-ID in der Patentier-Tabelle:', error);
+                    } else {
+                        console.log('User-ID erfolgreich in der Patentier-Tabelle gespeichert');
+                        alert('Vielen Dank für Ihre Spende!');
+                    }
+                } else {
+                    console.log('Benutzer ist nicht angemeldet.');
+                }
+            });
     });
-});
-
-
-
 
 
 
@@ -43,17 +61,6 @@ donateButtons.forEach(button => {
 
 // Rufe die Funktion auf, um die Daten aus Supabase zu laden und in den Feed einzufügen
 fetchAndAppendFeedData();
-
-
-// Funktion für Buttons Navigation (Wechseln der Unterseite)
-document.getElementById('feed-button').addEventListener('click', () => {
-    window.location.href = 'index.html';
-});
-
-document.getElementById('profile-button').addEventListener('click', () => {
-    window.location.href = 'kundenprofil.html';
-});
-
 
 
 
@@ -94,11 +101,7 @@ async function fetchAndAppendFeedData() {
                 <p><b>Alter:</b> ${tier.Alter}</p>
                 <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
                 <p>${tier.Beschreibung}</p>
-                <button class="spenden">Ich will spenden</button>
-                <div style="display: none;">
-                    <p>Weitere Informationen über ${tier.Name}...</p>
-                    <button class="spenden">Ich will spenden</button>
-                </div>
+                <button class="donate-button"-${tier.id}">Ich will spenden</button>
             </details>
         </div>
       `;
@@ -149,7 +152,7 @@ async function filterByContinent(Kontinent) {
           <p><b>Alter:</b> ${tier.Alter}</p>
           <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
           <p>${tier.Beschreibung}</p>
-          <button class="spenden" data-index="${index}">Ich will spenden</button>
+          <button class="donate-button-${tier.id}">Ich will spenden</button>
         </details>
       </div>
     `;
@@ -161,6 +164,18 @@ async function filterByContinent(Kontinent) {
 
 
 
+// Funktion für Buttons Navigation (Wechseln der Unterseite)
+document.getElementById('feed-button').addEventListener('click', () => {
+  window.location.href = 'index.html';
+});
+
+document.getElementById('profile-button').addEventListener('click', () => {
+  window.location.href = 'kundenprofil.html';
+});
+
+
+
+/* 
 const feedContainer = document.getElementById('feedContainer');
 
 // Überprüfe, ob das Element gefunden wurde, bevor du den Event Listener hinzufügst
@@ -177,8 +192,7 @@ if (feedContainer) {
       }
     }
   });
-}
-
+} */
 
 
 
