@@ -1,13 +1,4 @@
 
-/*Farben
-Backgroundcolor: background: #B48871;
-font-family: 'Istok Web'
-background: #F6E9D6;
-hover effect: #4a1509;
-backgroundcolo: white
-
-
-*/
 
 body {
     font-family: 'Istok Web', sans-serif;
@@ -38,8 +29,7 @@ body {
 .continent-button:hover{
     font-size: 180%;
     color: #4a1509;
-    
-}
+    }
 
 .kacheln {
    
@@ -66,7 +56,11 @@ summary {
     flex: 1;
 }
 
-/* Kacheln Bilder*/
+
+
+
+
+/* Kacheln___________________________________________________________________________________________*/
 
 .Kacheln-image{
     width: 20%;
@@ -75,8 +69,6 @@ summary {
     width: 50%;
     max-width: 400px;
 }
-
-
 
 .textvorschau {
     width: 50%;
@@ -93,13 +85,11 @@ summary {
    
 }
 
-
 .Box{
     background-color: #fff;
     display: flex;
     
 }
-
 
 div.Box{
     margin: 2%;
@@ -108,7 +98,6 @@ div.Box{
     border-bottom-left-radius: 30px; /* Unten links */
     border-bottom-right-radius: 30px; /* Unten rechts */
 }
-
 
 details.kacheln{
     padding:5%;
@@ -125,11 +114,12 @@ p{
     font-size: 150%;
 }
 
-
-
 summary p {
     font-weight:300;
 }
+
+
+
 
 .toggle-details {
     background-color: #007bff;
@@ -144,12 +134,29 @@ summary p {
 }
 
 .donate-button {
-    background-color: #ff5733;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+    margin: 10px auto;
+    padding: 4px 30px;
+    background-color:#B48871; 
+    border: 2px solid  #B48871; 
+    border-radius: 30px;
+    color: white;
+    font-size: 14px;
 }
+
+.donate-button:hover{
+    margin: 10px auto; 
+    padding: 4px 30px;
+    background-color:#F6E9D6;
+    border: 2px solid  #F6E9D6;
+    border-radius: 30px;
+    color: #B48871;
+    font-size: 14px;
+}
+
+
+/* Kacheln___________________________________________________________________________________________*/
+
+
 
 /*______________________________navigation______________________________________________*/
 
@@ -188,17 +195,17 @@ summary p {
     height: 75%;
 }
 
-/* WAS DAS? DAS BRAUCHTS GLAUB NICHT :) LG NORINA
-#feed-button, #profile-button {
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-} */
+
+
 
 summary::marker {
     color: #B48871; /* You can change 'red' to the color of your choice */
   }
+  
+
+
+
+
   
 /*   Media Queries */
 
@@ -215,20 +222,3 @@ summary::marker {
     /* Add any other styles for smartphone view here */
   }
 
-  button.spenden{
-    font-size: 150%;
-    background-color: #B48871;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    padding: 10px;
-    transition: font-size 0.4;
-  }
-
-  button.spenden:hover{
-    color: #B48871;
-    background-color: white;
-    border-color: #B48871;
-    border: 2px solid;
-    cursor: pointer;
-  }
