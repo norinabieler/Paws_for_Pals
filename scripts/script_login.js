@@ -28,7 +28,7 @@ async function signUp() {
     const email = document.getElementById('emailInput').value;
     const password = document.getElementById('passwordInput').value;
 
-    const { error } = await supa.auth.signUp({ email, password });
+    const { error } = await supa.auth.signUp({ name, email, password });
 
     if (error) {
         console.error("Error during sign up: ", error.message);
@@ -37,7 +37,7 @@ async function signUp() {
     }
 }
 
-/* // Function to update user status
+ // Function to update user status
 function updateUserStatus(user) {
     const userStatusElement = document.getElementById('userStatus');
 
@@ -46,10 +46,13 @@ function updateUserStatus(user) {
     } else {
         userStatusElement.textContent = `Not authenticated.`;
     }
-} */
+} 
+
+
 
 // Check and display the initial user status
 const initialUser = supa.auth.user();
+updateUserStatus(initialUser);
 /* updateUserStatus(initialUser);
  */
 // Event listeners for the buttons

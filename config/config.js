@@ -9,7 +9,8 @@ const supa = supabase.createClient(supabaseUrl, supabaseKey, {
     },
 });
 
-async function checkAuthenticationAndRedirect() {
+
+/* async function checkAuthenticationAndRedirect() {
     const user = supabase.auth.user();
   
     if (!user) {
@@ -20,4 +21,6 @@ async function checkAuthenticationAndRedirect() {
   // Use the window.onload event to call the function when the document is loaded
   window.onload = checkAuthenticationAndRedirect;
 
-export { supa }
+  */
+ 
+export { supa } 
