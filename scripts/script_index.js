@@ -62,7 +62,42 @@ donateButtons.forEach(button => {
 // Rufe die Funktion auf, um die Daten aus Supabase zu laden und in den Feed einzufügen
 fetchAndAppendFeedData();
 
-
+// Add a click event listener to the element
+document.getElementById("afrika-button").addEventListener('click', function(event) {
+  // Your code to run when the element is clicked goes here
+  // You can access the event object (optional) using the 'event' parameter
+  filterByContinent(document.getElementById("afrika-button").innerHTML);
+});
+// Add a click event listener to the element
+document.getElementById("asien-button").addEventListener('click', function(event) {
+  // Your code to run when the element is clicked goes here
+  // You can access the event object (optional) using the 'event' parameter
+  filterByContinent(document.getElementById("asien-button").innerHTML);
+});
+// Add a click event listener to the element
+document.getElementById("europa-button").addEventListener('click', function(event) {
+  // Your code to run when the element is clicked goes here
+  // You can access the event object (optional) using the 'event' parameter
+  filterByContinent(document.getElementById("europa-button").innerHTML);
+});
+// Add a click event listener to the element
+document.getElementById("nordamerika-button").addEventListener('click', function(event) {
+  // Your code to run when the element is clicked goes here
+  // You can access the event object (optional) using the 'event' parameter
+  filterByContinent(document.getElementById("nordamerika-button").innerHTML);
+});
+// Add a click event listener to the element
+document.getElementById("südamerika-button").addEventListener('click', function(event) {
+  // Your code to run when the element is clicked goes here
+  // You can access the event object (optional) using the 'event' parameter
+  filterByContinent(document.getElementById("südamerika-button").innerHTML);
+});
+// Add a click event listener to the element
+document.getElementById("australien-button").addEventListener('click', function(event) {
+  // Your code to run when the element is clicked goes here
+  // You can access the event object (optional) using the 'event' parameter
+  filterByContinent(document.getElementById("australien-button").innerHTML);
+});
 
 //supabase verknüpfung
 
@@ -122,21 +157,25 @@ const { data, error } = await supa.from('Animals').select(`
 
 // Änderung in der filterByContinent-Funktion
 async function filterByContinent(Kontinent) {
+  console.log(Kontinent)
   const { data, error } = await supa
     .from('Animals')
-    .select('Name, Tierart, Preis, Picture, Herkunft, Kategorie_ID(Kontinent), Alter, Geschlecht, Beschreibung, id')
-    .eq('Kategorie_ID.Kontinent', Kontinent);
+    .select('Name, Tierart, Preis, Picture, Herkunft, Kategorien (id, Kontinent), Alter, Geschlecht, Beschreibung, id')
+    
 
   if (error) {
     console.error('Fehler beim Filtern nach Kontinent:', error);
     return;
   }
 
+  console.log(data)
   const feedContainer = document.getElementById('feed');
   feedContainer.innerHTML = '';
-
+  let output;
   data.forEach(tier => {
-    let output = `
+    if (tier.Kategorien.Kontinent == Kontinent) {
+      console.log(Kontinent, tier.Kategorien.Kontinent)
+    output = `
       <div class="Box" id="Box">
         <details class="kacheln">
           <summary>
@@ -148,7 +187,7 @@ async function filterByContinent(Kontinent) {
               <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
             </div>
           </summary>
-          <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
+          <p><b>Herkunft:</b>, ${tier.Kategorien.Kontinent}</p>
           <p><b>Alter:</b> ${tier.Alter}</p>
           <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
           <p>${tier.Beschreibung}</p>
@@ -156,9 +195,13 @@ async function filterByContinent(Kontinent) {
         </details>
       </div>
     `;
-
     feedContainer.innerHTML += output;
+    } else {
+      feedContainer.innerHTML = '<p>Keine Tiere</div>'
+    }
+
   });
+  
 }
 
 
@@ -174,51 +217,3 @@ document.getElementById('profile-button').addEventListener('click', () => {
 });
 
 
-
-/* 
-const feedContainer = document.getElementById('feedContainer');
-
-// Überprüfe, ob das Element gefunden wurde, bevor du den Event Listener hinzufügst
-if (feedContainer) {
-  // Hier fügst du den Event Listener hinzu
-  feedContainer.addEventListener('click', (event) => {
-    if (event.target.classList.contains('spenden')) {
-      const index = event.target.getAttribute('data-index');
-      const selectedTier = data[index];
-
-      if (selectedTier) {
-        const tierName = selectedTier.Name;
-        console.log(`Geklicktes Element: ${tierName}`);
-      }
-    }
-  });
-} */
-
-
-
-// Einem Tier eine User ID zuordnen
-//const userID = initialUser.id; // Hier die UserID des angemeldeten Benutzers einsetzen
-//const AnimalToAssign = {
-  // Hier die Daten des Elements, das du dem Benutzer zuordnen möchtest
-//  id: await supabase.from('Animals')
-  // Weitere Datenfelder können hier hinzugefügt werden
-//};
-
-// Funktion zum Zuordnen des Elements zum Benutzer
-//async function assignAnimalToUser() {
-  // Aktualisiere das Tier mit der UserID des Spenders
-//  const { data, error } = await supabase.from('Animals').upsert([
- //   {
-  //    User_Id: userID,
-  //    ...AnimalToAssign,
-  //  },
-  //]);
-
-  //if (error) {
-  //  console.error('Fehler beim Zuordnen des Elements zum Benutzer:', error);
-  //} else {
-  //  console.log('Element erfolgreich zugeordnet:', data);
-  //}
-//}
-
-//assignAnimalToUser();
