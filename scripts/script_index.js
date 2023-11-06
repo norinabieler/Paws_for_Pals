@@ -112,7 +112,20 @@ document.getElementById("australien-button").addEventListener('click', function(
   // You can access the event object (optional) using the 'event' parameter
   filterByContinent(document.getElementById("australien-button").innerHTML);
 });
+document.getElementById("alle-button").addEventListener('click', function(event) {
+  showAllTiere();
+});
 
+
+
+
+function showAllTiere() {
+  // Setzen Sie den Status der Filterung zurück, falls erforderlich
+  isFiltering = false;
+
+  // Rufen Sie die Funktion auf, um alle Tiere anzuzeigen
+  fetchAndAppendFeedData();
+}
 
 
 
@@ -218,12 +231,13 @@ async function filterByContinent(Kontinent) {
       </div>
     `;
     feedContainer.innerHTML += output;
-    } else {
-      feedContainer.innerHTML = '<p>Keine Tiere</div>'
-    }
+  }
+});
 
-  });
-  
+// Überprüfen, ob keine passenden Tiere gefunden wurden
+if (feedContainer.innerHTML === '') {
+  feedContainer.innerHTML = '<p>Keine Tiere gefunden</p>';
+}
 }
 
 
@@ -237,5 +251,7 @@ document.getElementById('feed-button').addEventListener('click', () => {
 document.getElementById('profile-button').addEventListener('click', () => {
   window.location.href = 'kundenprofil.html';
 });
+
+
 
 
