@@ -2,7 +2,6 @@ import { supa } from "../config/config.js";
 
 
 const toggleButtons = document.querySelectorAll('.toggle-details');
-const donateButtons = document.querySelectorAll('.donate-button');
 
 toggleButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -22,41 +21,56 @@ toggleButtons.forEach(button => {
 });
 
 
-donateButtons.forEach(button => {
-    button.addEventListener('click', async function() {
-                // Stelle sicher, dass der Benutzer angemeldet ist und erhalte die User-ID
-                const user = supabase.auth.user();
-                if (user) {
-                    const userId = user.id; // Hier wird die User-ID abgerufen
+// Funktion für donate-button______________________________________________________________________________________________________
 
-                    // Erstelle ein Objekt, das du in der Patentier-Tabelle speichern möchtest
-                    const donationData = {
-                        userId: userId,
-                        // Andere benötigte Informationen für die Spende
-                    };
-        
-                    // Sende eine Anfrage an deine Supabase-Datenbank, um die User-ID in der Patentier-Tabelle zu speichern
-                    const { data, error } = await supabase
-                        .from('Animals') // Ersetze 'Patentier-Tabelle' durch den tatsächlichen Tabellennamen
-                        .upsert([donationData]); // 'upsert' wird verwendet, um die Daten zu aktualisieren oder einzufügen
-        
-                    if (error) {
-                        console.error('Fehler beim Speichern der User-ID in der Patentier-Tabelle:', error);
-                    } else {
-                        console.log('User-ID erfolgreich in der Patentier-Tabelle gespeichert');
-                        alert('Vielen Dank für Ihre Spende!');
-                    }
-                } else {
-                    console.log('Benutzer ist nicht angemeldet.');
-                }
-            });
+async function addUserID() {
+  // Daten aus der Tabelle 'Animals' abrufen
+  const { data, error } = await supa
+    .from('Animals')
+    .select('id');
+
+  if (error) {
+    console.error('Fehler beim Abrufen der Daten aus der Tabelle:', error);
+    console.log('Fehler');
+    return;
+  }
+
+  // Event-Handler für Spendenbuttons hinzufügen
+  data.forEach(tier => {
+    const donateButton = document.getElementById(`donateButton-${tier.id}`);
+
+    donateButton.addEventListener('click', async () => {
+      // Stelle sicher, dass der Benutzer angemeldet ist und erhalte die User-ID
+      const user = supabase.auth.user();
+      if (user) {
+        const userId = user.id;
+
+        // Erstelle ein Objekt mit den Spendeinformationen
+        const donationData = {
+          userId: userId,
+          // Füge hier weitere Informationen für die Spende hinzu
+        };
+
+        // Sende die Spendeinformationen an die Datenbank
+        const { data, error } = await supabase
+          .from('Patentier-Tabelle') // Ersetze durch den tatsächlichen Tabellennamen
+          .upsert([donationData]);
+
+        if (error) {
+          console.error('Fehler beim Speichern der User-ID in der Patentier-Tabelle:', error);
+        } else {
+          console.log('User-ID erfolgreich in der Patentier-Tabelle gespeichert');
+          alert('Vielen Dank für Ihre Spende!');
+        }
+      } else {
+        console.log('Benutzer ist nicht angemeldet.');
+      }
     });
+  });
+}
 
 
-
-
-
-
+// Funktion für donate-button______________________________________________________________________________________________________
 
 
 // Rufe die Funktion auf, um die Daten aus Supabase zu laden und in den Feed einzufügen
@@ -99,6 +113,9 @@ document.getElementById("australien-button").addEventListener('click', function(
   filterByContinent(document.getElementById("australien-button").innerHTML);
 });
 
+
+
+
 //supabase verknüpfung
 
 // 2. Funktion zum Abrufen und Einbinden von Daten aus Supabase
@@ -136,15 +153,20 @@ async function fetchAndAppendFeedData() {
                 <p><b>Alter:</b> ${tier.Alter}</p>
                 <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
                 <p>${tier.Beschreibung}</p>
-                <button class="donate-button"-${tier.id}">Ich will spenden</button>
+                <button id="donateButton-${tier.id}" class="donate-button">Ich will spenden</button>
             </details>
         </div>
       `;
 
+
       feedContainer.innerHTML += output;
+
+      
     });
 
 }
+
+
 
 // Rufe die Funktion auf, um die Daten aus Supabase zu laden und in den Feed einzufügen
 /*fetchAndAppendFeedData();
@@ -191,7 +213,7 @@ async function filterByContinent(Kontinent) {
           <p><b>Alter:</b> ${tier.Alter}</p>
           <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
           <p>${tier.Beschreibung}</p>
-          <button class="donate-button-${tier.id}">Ich will spenden</button>
+          <button id="donateButton-${tier.id}" class="donate-button">Ich will spenden</button>
         </details>
       </div>
     `;
