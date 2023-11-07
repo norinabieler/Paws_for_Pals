@@ -21,53 +21,6 @@ toggleButtons.forEach(button => {
 });
 
 
-// Funktion für donate-button______________________________________________________________________________________________________
-
-async function addUserID() {
-  // Daten aus der Tabelle 'Animals' abrufen
-  const { data, error } = await supa
-    .from('Animals')
-    .select('id');
-
-  if (error) {
-    console.error('Fehler beim Abrufen der Daten aus der Tabelle:', error);
-    console.log('Fehler');
-    return;
-  }
-
-  // Event-Handler für Spendenbuttons hinzufügen
-  data.forEach(tier => {
-    const donateButton = document.getElementById(`donateButton-${tier.id}`);
-
-    donateButton.addEventListener('click', async () => {
-      // Stelle sicher, dass der Benutzer angemeldet ist und erhalte die User-ID
-      const user = supabase.auth.user();
-      if (user) {
-        const userId = user.id;
-
-        // Erstelle ein Objekt mit den Spendeinformationen
-        const donationData = {
-          userId: userId,
-          // Füge hier weitere Informationen für die Spende hinzu
-        };
-
-        // Sende die Spendeinformationen an die Datenbank
-        const { data, error } = await supabase
-          .from('Patentier-Tabelle') // Ersetze durch den tatsächlichen Tabellennamen
-          .upsert([donationData]);
-
-        if (error) {
-          console.error('Fehler beim Speichern der User-ID in der Patentier-Tabelle:', error);
-        } else {
-          console.log('User-ID erfolgreich in der Patentier-Tabelle gespeichert');
-          alert('Vielen Dank für Ihre Spende!');
-        }
-      } else {
-        console.log('Benutzer ist nicht angemeldet.');
-      }
-    });
-  });
-}
 
 
 // Funktion für donate-button______________________________________________________________________________________________________
@@ -238,6 +191,58 @@ async function filterByContinent(Kontinent) {
 if (feedContainer.innerHTML === '') {
   feedContainer.innerHTML = '<p>Keine Tiere gefunden</p>';
 }
+}
+
+
+
+
+
+// Funktion für donate-button______________________________________________________________________________________________________
+
+async function addUserID() {
+  // Daten aus der Tabelle 'Animals' abrufen
+  const { data, error } = await supa
+    .from('Animals')
+    .select('id');
+
+  if (error) {
+    console.error('Fehler beim Abrufen der Daten aus der Tabelle:', error);
+    console.log('Fehler');
+    return;
+  }
+
+  // Event-Handler für Spendenbuttons hinzufügen
+  data.forEach(tier => {
+    const donateButton = document.getElementById(`donateButton-${tier.id}`);
+
+    donateButton.addEventListener('click', async () => {
+      // Stelle sicher, dass der Benutzer angemeldet ist und erhalte die User-ID
+      const user = supabase.auth.user();
+      if (user) {
+        const userId = user.id;
+
+        // Erstelle ein Objekt mit den Spendeinformationen
+        const donationData = {
+          userId: userId,
+          // Füge hier weitere Informationen für die Spende hinzu
+        };
+
+        // Sende die Spendeinformationen an die Datenbank
+        const { data, error } = await supabase
+          .from('Patentier-Tabelle') // Ersetze durch den tatsächlichen Tabellennamen
+          .upsert([donationData]);
+
+        if (error) {
+          console.error('Fehler beim Speichern der User-ID in der Patentier-Tabelle:', error);
+        } else {
+          console.log('User-ID erfolgreich in der Patentier-Tabelle gespeichert');
+          alert('Vielen Dank für Ihre Spende!');
+        }
+      } else {
+        console.log('Benutzer ist nicht angemeldet.');
+      }
+    });
+  });
 }
 
 
