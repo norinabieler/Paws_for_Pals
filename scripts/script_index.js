@@ -29,56 +29,58 @@ toggleButtons.forEach(button => {
 // Rufe die Funktion auf, um die Daten aus Supabase zu laden und in den Feed einzufügen
 fetchAndAppendFeedData();
 
+
+let isFiltering = false; 
+let isAllTiereLoaded = false;
+
+
 // Add a click event listener to the element
 document.getElementById("afrika-button").addEventListener('click', function(event) {
+  isFiltering = true;
   // Your code to run when the element is clicked goes here
   // You can access the event object (optional) using the 'event' parameter
   filterByContinent(document.getElementById("afrika-button").innerHTML);
 });
 // Add a click event listener to the element
 document.getElementById("asien-button").addEventListener('click', function(event) {
+  isFiltering = true;
   // Your code to run when the element is clicked goes here
   // You can access the event object (optional) using the 'event' parameter
   filterByContinent(document.getElementById("asien-button").innerHTML);
 });
 // Add a click event listener to the element
 document.getElementById("europa-button").addEventListener('click', function(event) {
+  isFiltering = true;
   // Your code to run when the element is clicked goes here
   // You can access the event object (optional) using the 'event' parameter
   filterByContinent(document.getElementById("europa-button").innerHTML);
 });
 // Add a click event listener to the element
 document.getElementById("nordamerika-button").addEventListener('click', function(event) {
+  isFiltering = true;
   // Your code to run when the element is clicked goes here
   // You can access the event object (optional) using the 'event' parameter
   filterByContinent(document.getElementById("nordamerika-button").innerHTML);
 });
 // Add a click event listener to the element
 document.getElementById("südamerika-button").addEventListener('click', function(event) {
+  isFiltering = true;
   // Your code to run when the element is clicked goes here
   // You can access the event object (optional) using the 'event' parameter
   filterByContinent(document.getElementById("südamerika-button").innerHTML);
 });
 // Add a click event listener to the element
 document.getElementById("australien-button").addEventListener('click', function(event) {
+  isFiltering = true;
   // Your code to run when the element is clicked goes here
   // You can access the event object (optional) using the 'event' parameter
   filterByContinent(document.getElementById("australien-button").innerHTML);
 });
+// Add a click event listener to the element
 document.getElementById("alle-button").addEventListener('click', function(event) {
-  showAllTiere();
+  // Lade die Seite neu, wenn der "Alle Tiere" -Button geklickt wird
+  location.reload();
 });
-
-
-
-
-function showAllTiere() {
-  // Setzen Sie den Status der Filterung zurück, falls erforderlich
-  isFiltering = false;
-
-  // Rufen Sie die Funktion auf, um alle Tiere anzuzeigen
-  fetchAndAppendFeedData();
-}
 
 
 
@@ -86,50 +88,45 @@ function showAllTiere() {
 
 // 2. Funktion zum Abrufen und Einbinden von Daten aus Supabase
 async function fetchAndAppendFeedData() {
-    const { data, error } = await supa
-      .from('Animals') // Hier 'deine_tabelle' durch den Namen deiner Tabelle ersetzen
-      .select('Name, Tierart, Preis, Picture, Herkunft, Kategorie_ID(Kontinent), Alter, Geschlecht, Beschreibung, id')
+  const feedContainer = document.getElementById('feed');
+  feedContainer.innerHTML = '';
 
+  const { data, error } = await supa
+    .from('Animals') // Hier 'deine_tabelle' durch den Namen deiner Tabelle ersetzen
+    .select('Name, Tierart, Preis, Picture, Herkunft, Kategorie_ID(Kontinent), Alter, Geschlecht, Beschreibung, id')
 
-      console.log(data)
+  console.log(data)
 
-    if (error) {
-      console.error('Fehler beim Abrufen der Daten:', error);
-      return;
-    }
+  if (error) {
+    console.error('Fehler beim Abrufen der Daten:', error);
+    return;
+  }
 
-    const feedContainer = document.getElementById('feed'); // Hier 'feed' durch die ID deines Feed-Containers ersetzen
-
-    // Daten aus der Supabase-Tabelle in deinen Feed einfügen
-    data.forEach(tier => {
-      
-       let output = `
-        <div class="Box">
-            <details class="kacheln">
-            <summary>
-            <div class="Kacheln-image">
-              <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
-            </div>
-            <div class="textvorschau">
-              <h3>${tier.Name}</h3>
-              <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
-            </div>
-          </summary>
-                <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
-                <p><b>Alter:</b> ${tier.Alter}</p>
-                <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
-                <p>${tier.Beschreibung}</p>
-                <button id="donateButton-${tier.id}" class="donate-button">Ich will spenden</button>
-            </details>
-        </div>
-      `;
-
-
-      feedContainer.innerHTML += output;
-
-      
-    });
-
+  // Daten aus der Supabase-Tabelle in deinen Feed einfügen
+  data.forEach(tier => {
+    
+     let output = `
+      <div class="Box">
+          <details class="kacheln">
+          <summary>
+          <div class="Kacheln-image">
+            <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
+          </div>
+          <div class="textvorschau">
+            <h3>${tier.Name}</h3>
+            <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
+          </div>
+        </summary>
+            <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
+            <p><b>Alter:</b> ${tier.Alter}</p>
+            <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
+            <p>${tier.Beschreibung}</p>
+            <button id="donateButton-${tier.id}" class="donate-button">Ich will spenden</button>
+          </details>
+      </div>
+    `;
+    feedContainer.innerHTML += output;
+  });
 }
 
 
