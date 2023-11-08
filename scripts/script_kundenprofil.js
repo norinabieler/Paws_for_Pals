@@ -77,13 +77,14 @@ async function fetchAndAppendAnimalData() {
 }
 
 
+
 //________________________________________________________________________________________________________________________________________________
 
 async function removeUserID() {
   // Daten aus der Tabelle 'Animals' abrufen
   const { data, error } = await supa
     .from('Animals')
-    .select('id');
+    .select('id, User_Id');
 
   if (error) {
     console.error('Fehler beim Abrufen der Daten aus der Tabelle:', error);
