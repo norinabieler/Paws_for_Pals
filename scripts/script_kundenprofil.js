@@ -67,12 +67,66 @@ async function fetchAndAppendAnimalData() {
             <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
             <p><b>Alter:</b> ${tier.Alter}</p>
             <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
-            <button id="deleteButton-${tier.id}" class="delete-button>Spende beenden</button>
+
+            <button id="deleteButton-${tier.id}" class="deleteButton">Spende beenden</button>
       </div>
     `;
     patentierContainer.innerHTML += output;
+    removeUserID();
   });
 }
+
+
+//________________________________________________________________________________________________________________________________________________
+
+async function removeUserID() {
+  // Daten aus der Tabelle 'Animals' abrufen
+  const { data, error } = await supa
+    .from('Animals')
+    .select('id');
+
+  if (error) {
+    console.error('Fehler beim Abrufen der Daten aus der Tabelle:', error);
+    console.log('Fehler');
+    return;
+  }
+
+  // Event-Handler für Löschen-Buttons hinzufügen
+  data.forEach(tier => {
+    const deleteButton = document.getElementById(`deleteButton-${tier.id}`);
+    
+    deleteButton.addEventListener('click', async () => {
+      // Stelle sicher, dass der Benutzer angemeldet ist und erhalte die User-ID
+      
+      const user = supa.auth.user();
+      if (user) {
+        const userId = user.id;
+
+ 
+          // Entferne die User-ID aus der Datenbank
+          const { error } = await supa
+            .from('Animals')
+            .update({ User_Id: null })
+            .eq('id', tier.id);
+            
+
+          if (error) {
+            console.error('Fehler beim Entfernen der User-ID aus der Patentier-Tabelle:', error);
+          
+          } else {
+            console.log('User-ID erfolgreich aus der Patentier-Tabelle entfernt');
+          }
+        } else {
+          console.log('Der Benutzer hat keine Berechtigung zum Entfernen der User-ID.');
+        }
+    });
+  });
+}
+
+
+//________________________________________________________________________________________________________________________________________________
+
+
 
 
 // Funktion zum Abmelden
