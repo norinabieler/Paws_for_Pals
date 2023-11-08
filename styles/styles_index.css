@@ -32,7 +32,6 @@ body {
     }
 
 .kacheln {
-   
     width: 100%;
 }
 
@@ -41,16 +40,6 @@ summary {
     flex-direction: row-reverse;
     justify-content: space-between;
 }
-
-
-/*.kacheln p {
-    margin: 5%;
-    flex:1;
-}*/
-
-/*.kachel-details {
-    display: none;
-}*/
 
 .kacheln-content{
     flex: 1;
@@ -119,8 +108,6 @@ summary p {
 }
 
 
-
-
 .toggle-details {
     background-color: #007bff;
     color: #fff;
@@ -138,19 +125,15 @@ summary p {
     padding: 4px 30px;
     background-color:#B48871; 
     border: 2px solid  #B48871; 
-    border-radius: 30px;
+    border-radius: 5px;
     color: white;
     font-size: 14px;
 }
 
 .donate-button:hover{
-    margin: 10px auto; 
-    padding: 4px 30px;
     background-color:#F6E9D6;
     border: 2px solid  #F6E9D6;
-    border-radius: 30px;
     color: #B48871;
-    font-size: 14px;
 }
 
 
@@ -197,8 +180,6 @@ summary p {
 .icon_feed_button {
     height: 75%;
 }
-
-
 
 
 summary::marker {
