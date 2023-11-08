@@ -91,9 +91,11 @@ async function fetchAndAppendFeedData() {
   const feedContainer = document.getElementById('feed');
   feedContainer.innerHTML = '';
 
+  const undefined = null;
+
   const { data, error } = await supa
     .from('Animals') // Hier 'deine_tabelle' durch den Namen deiner Tabelle ersetzen
-    .select('Name, Tierart, Preis, Picture, Herkunft, Kategorie_ID(Kontinent), Alter, Geschlecht, Beschreibung, id')
+    .select('Name, Tierart, Preis, Picture, Herkunft, Kategorie_ID(Kontinent), Alter, Geschlecht, Beschreibung, id, User_Id')
 
   console.log(data)
 
@@ -104,38 +106,33 @@ async function fetchAndAppendFeedData() {
 
   // Daten aus der Supabase-Tabelle in deinen Feed einfügen
   data.forEach(tier => {
-    
-     let output = `
-      <div class="Box">
+    if (tier.User_Id === null) { // Prüfe, ob User_Id NULL ist
+      let output = `
+        <div class="Box">
           <details class="kacheln">
-          <summary>
-          <div class="Kacheln-image">
-            <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
-          </div>
-          <div class="textvorschau">
-            <h3>${tier.Name}</h3>
-            <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
-          </div>
-        </summary>
+            <summary>
+              <div class="Kacheln-image">
+                <img src="${tier.Picture}" alt="Bild von ${tier.Name}">
+              </div>
+              <div class="textvorschau">
+                <h3>${tier.Name}</h3>
+                <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
+              </div>
+            </summary>
             <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
             <p><b>Alter:</b> ${tier.Alter}</p>
             <p><b>Geschlecht:</b> ${tier.Geschlecht}</p>
             <p>${tier.Beschreibung}</p>
             <button id="donateButton-${tier.id}" class="donate-button">Ich will spenden</button>
           </details>
-      </div>
-    `;
-    feedContainer.innerHTML += output;
+        </div>
+      `;
+      feedContainer.innerHTML += output;
+      addUserID();
+    }
   });
 }
 
-
-
-// Rufe die Funktion auf, um die Daten aus Supabase zu laden und in den Feed einzufügen
-/*fetchAndAppendFeedData();
-const { data, error } = await supa.from('Animals').select(`
-  Kategorien_Id (Kontinent)
-`)*/
 
 
 //Filtern 
@@ -145,7 +142,7 @@ async function filterByContinent(Kontinent) {
   console.log(Kontinent)
   const { data, error } = await supa
     .from('Animals')
-    .select('Name, Tierart, Preis, Picture, Herkunft, Kategorien (id, Kontinent), Alter, Geschlecht, Beschreibung, id')
+    .select('Name, Tierart, Preis, Picture, Herkunft, Kategorien (id, Kontinent), Alter, Geschlecht, Beschreibung, id, User_Id')
     
 
   if (error) {
@@ -158,8 +155,8 @@ async function filterByContinent(Kontinent) {
   feedContainer.innerHTML = '';
   let output;
   data.forEach(tier => {
-    if (tier.Kategorien.Kontinent == Kontinent) {
-      console.log(Kontinent, tier.Kategorien.Kontinent)
+    if (tier.Kategorien.Kontinent == Kontinent && tier.User_Id === null) {
+      console.log(Kontinent, tier.Kategorien.Kontinent )
     output = `
       <div class="Box" id="Box">
         <details class="kacheln">
@@ -181,7 +178,7 @@ async function filterByContinent(Kontinent) {
       </div>
     `;
     feedContainer.innerHTML += output;
-  }
+}
 });
 
 // Überprüfen, ob keine passenden Tiere gefunden wurden
@@ -214,26 +211,27 @@ async function addUserID() {
 
     donateButton.addEventListener('click', async () => {
       // Stelle sicher, dass der Benutzer angemeldet ist und erhalte die User-ID
-      const user = supabase.auth.user();
+
+      const user = supa.auth.user();
       if (user) {
         const userId = user.id;
 
-        // Erstelle ein Objekt mit den Spendeinformationen
+/*         // Erstelle ein Objekt mit den Spendeinformationen
         const donationData = {
           userId: userId,
           // Füge hier weitere Informationen für die Spende hinzu
         };
-
+ */
         // Sende die Spendeinformationen an die Datenbank
-        const { data, error } = await supabase
-          .from('Patentier-Tabelle') // Ersetze durch den tatsächlichen Tabellennamen
-          .upsert([donationData]);
+        const { error } = await supa
+        .from('Animals')
+        .update({ User_Id: userId })
+        .eq('id', tier.id)
 
         if (error) {
           console.error('Fehler beim Speichern der User-ID in der Patentier-Tabelle:', error);
         } else {
           console.log('User-ID erfolgreich in der Patentier-Tabelle gespeichert');
-          alert('Vielen Dank für Ihre Spende!');
         }
       } else {
         console.log('Benutzer ist nicht angemeldet.');
