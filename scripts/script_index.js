@@ -216,12 +216,6 @@ async function addUserID() {
       if (user) {
         const userId = user.id;
 
-/*         // Erstelle ein Objekt mit den Spendeinformationen
-        const donationData = {
-          userId: userId,
-          // Füge hier weitere Informationen für die Spende hinzu
-        };
- */
         // Sende die Spendeinformationen an die Datenbank
         const { error } = await supa
         .from('Animals')
@@ -230,6 +224,7 @@ async function addUserID() {
 
         if (error) {
           console.error('Fehler beim Speichern der User-ID in der Patentier-Tabelle:', error);
+        
         } else {
           console.log('User-ID erfolgreich in der Patentier-Tabelle gespeichert');
         }
