@@ -4,9 +4,7 @@ body {
     color: #9E725A;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; 
 }
 
 /* _________________________________________Header_____________________________ */
@@ -21,7 +19,7 @@ header {
 #logo {
     display: flex;
     justify-content: center; /* Horizontale Zentrierung */
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 #logo img {
@@ -76,11 +74,6 @@ h3 {
     flex-direction: column;
 }
 
-.Box{
-    background-color: #fff;
-    
-}
-
 div.Box{
     margin: 2%;
     border-top-left-radius: 30px; /* Oben links */
@@ -89,24 +82,21 @@ div.Box{
     border-bottom-right-radius: 30px; /* Unten rechts */
 }
 
-.delete-button {
+.deleteButton {
     margin: 10px auto;
     padding: 4px 30px;
     background-color:#B48871; 
     border: 2px solid  #B48871; 
-    border-radius: 30px;
+    border-radius: 5px;
     color: white;
     font-size: 14px;
+    z-index: 200;
 }
 
-.delete-button:hover{
-    margin: 10px auto; 
-    padding: 4px 30px;
-    background-color:#F6E9D6;
+.deleteButton:hover {
+    background-color: #F6E9D6;
     border: 2px solid  #F6E9D6;
-    border-radius: 30px;
     color: #B48871;
-    font-size: 14px;
 }
 
 /* _________________________________________Navigation_____________________________ */
@@ -164,5 +154,14 @@ div.Box{
     margin-top: 20px;
     z-index: 10;
     margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#logoutButton:hover {
+    background-color:white; /* Hintergrundfarbe auf Weiß setzen */
+    border: 2px solid  white; /* Entfernt die Rahmen um die Buttons */
+    color: #B48871; /* Textfarbe auf die gewünschte Farbe (Braun) setzen */
 }
 
