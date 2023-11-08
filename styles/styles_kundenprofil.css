@@ -43,8 +43,8 @@ header {
     background-color: white; 
     border-radius: 10px; 
     padding: 20px; 
-    padding-bottom: 65px;
     margin: 0 15px;
+    z-index: -1;
 }
 
 p {
@@ -60,6 +60,54 @@ h3 {
     margin: 15px 3px 0px 0px;
 }
 
+.infos {
+    margin: 2%;
+    border-top-left-radius: 30px; /* Oben links */
+    border-top-right-radius: 30px; /* Oben rechts */
+    border-bottom-left-radius: 30px; /* Unten links */
+    border-bottom-right-radius: 30px; /* Unten rechts */
+}
+
+/*________________________________________________________________________________________________________*/
+
+.text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Box{
+    background-color: #fff;
+    
+}
+
+div.Box{
+    margin: 2%;
+    border-top-left-radius: 30px; /* Oben links */
+    border-top-right-radius: 30px; /* Oben rechts */
+    border-bottom-left-radius: 30px; /* Unten links */
+    border-bottom-right-radius: 30px; /* Unten rechts */
+}
+
+.delete-button {
+    margin: 10px auto;
+    padding: 4px 30px;
+    background-color:#B48871; 
+    border: 2px solid  #B48871; 
+    border-radius: 30px;
+    color: white;
+    font-size: 14px;
+}
+
+.delete-button:hover{
+    margin: 10px auto; 
+    padding: 4px 30px;
+    background-color:#F6E9D6;
+    border: 2px solid  #F6E9D6;
+    border-radius: 30px;
+    color: #B48871;
+    font-size: 14px;
+}
 
 /* _________________________________________Navigation_____________________________ */
 
@@ -114,17 +162,7 @@ h3 {
     color: white; /* Textfarbe auf die gewünschte Farbe (Braun) setzen */
     font-size: 20px;
     margin-top: 20px;
+    z-index: 10;
+    margin-bottom: 100px;
 }
 
-
-
-/*Janas Programmierkünste*/
-#LöschButton {
-    margin: 10px auto; /* Zentriert die Buttons horizontal und fügt Abstand hinzu */
-    padding: 4px 30px; /* Abstand innerhalb der Buttons */
-    background-color:#B48871; /* Hintergrundfarbe auf Weiß setzen */
-    border: 2px solid  #B48871; /* Entfernt die Rahmen um die Buttons */
-    border-radius: 30px;
-    color: white; /* Textfarbe auf die gewünschte Farbe (Braun) setzen */
-    font-size: 14px;
-}
