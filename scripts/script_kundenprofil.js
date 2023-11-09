@@ -72,11 +72,14 @@ async function fetchAndAppendAnimalData() {
       </div>
     `;
     patentierContainer.innerHTML += output;
-    removeUserID();
+
   });
+  removeUserID();
 }
 
-
+function deleteUser() {
+  console.log('delete');
+};
 
 //________________________________________________________________________________________________________________________________________________
 
@@ -95,11 +98,12 @@ async function removeUserID() {
   // Event-Handler für Löschen-Buttons hinzufügen
   data.forEach(tier => {
     const deleteButton = document.getElementById(`deleteButton-${tier.id}`);
-    
+    console.log(deleteButton);
+
     deleteButton.addEventListener('click', async () => {
-      // Stelle sicher, dass der Benutzer angemeldet ist und erhalte die User-ID
+      console.log(tier.id);      // Stelle sicher, dass der Benutzer angemeldet ist und erhalte die User-ID
       
-      const user = supa.auth.user();
+    const user = supa.auth.user();
       if (user) {
         const userId = user.id;
 
@@ -108,20 +112,19 @@ async function removeUserID() {
           const { error } = await supa
             .from('Animals')
             .update({ User_Id: null })
-            .eq('id', tier.id);
-            
+            .eq('id', tier.id); 
 
           if (error) {
             console.error('Fehler beim Entfernen der User-ID aus der Patentier-Tabelle:', error);
-          
+
           } else {
             console.log('User-ID erfolgreich aus der Patentier-Tabelle entfernt');
           }
         } else {
           console.log('Der Benutzer hat keine Berechtigung zum Entfernen der User-ID.');
         }
-    });
-  });
+    }); 
+  });  
 }
 
 
