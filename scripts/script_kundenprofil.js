@@ -83,6 +83,7 @@ function deleteUser() {
 
 //________________________________________________________________________________________________________________________________________________
 
+
 async function removeUserID() {
   // Daten aus der Tabelle 'Animals' abrufen
   const { data, error } = await supa
