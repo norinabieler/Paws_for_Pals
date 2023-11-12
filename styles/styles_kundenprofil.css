@@ -97,6 +97,7 @@ div.Box{
     background-color: #F6E9D6;
     border: 2px solid  #F6E9D6;
     color: #B48871;
+    cursor: pointer;
 }
 
 /* _________________________________________Navigation_____________________________ */
