@@ -8,15 +8,14 @@ async function checkUser() {
     const user = supa.auth.user();
     if (user) {
         console.log("User is already logged in as", user.email);
-        window.location.href = 'http://localhost:5500/index.html'; // Weiterleitung zu einer anderen Seite
+        window.location.href = 'https://603297-3.web.fhgr.ch/index.html'; // Weiterleitung zu einer anderen Seite
     } else {
-        console.log("User is not logged in.");
+        return;
     }
 }
 
 // Event listener für das Überprüfen des Benutzers beim Laden der Seite
 window.addEventListener('load', checkUser);
-
 
 
 // Function to login using email and password_______________________________________________________________________________________________
@@ -31,8 +30,7 @@ async function login() {
         console.error("Error during login: ", error.message);
     } else {
         console.log("Logged in as ", email);
-        window.location.href = 'http://localhost:5500/index.html'
-
+        window.location.href = 'https://603297-3.web.fhgr.ch/index.html'
     }
 }
 
