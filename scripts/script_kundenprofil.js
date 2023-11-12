@@ -19,13 +19,6 @@ console.log(initialUser.id);
 
 fetchAndAppendAnimalData();
 
-document.getElementById("feed-button").addEventListener("click", () => {
-  window.location.href = "index.html";
-});
-
-document.getElementById("profile-button").addEventListener("click", () => {
-  window.location.href = "kundenprofil.html";
-});
 
 // Hier Funktion um Patentiere einzufügen
 // Abrufen und Einbinden von Daten aus Supabase
@@ -187,3 +180,15 @@ const logoutButton = document.getElementById("logoutButton");
 if (logoutButton) {
   logoutButton.addEventListener("click", logout);
 }
+
+
+//________________________________________________________________________________________________________________________________________________
+
+
+document.getElementById("feed-button").addEventListener("click", () => {
+  window.location.href = "index.html";
+});
+
+document.getElementById("profile-button").addEventListener("click", () => {
+  window.location.href = "kundenprofil.html";
+});
