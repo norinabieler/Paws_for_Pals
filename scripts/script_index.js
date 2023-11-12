@@ -117,6 +117,7 @@ async function fetchAndAppendFeedData() {
               <div class="textvorschau">
                 <h3>${tier.Name}</h3>
                 <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
+                <p class="unterstrichen">Alle Infos<p>
               </div>
             </summary>
             <p><b>Herkunft:</b> ${tier.Herkunft}, ${tier.Kategorie_ID.Kontinent}</p>
@@ -167,6 +168,7 @@ async function filterByContinent(Kontinent) {
             <div class="textvorschau">
               <h3>${tier.Name}</h3>
               <p>${tier.Tierart}, ${tier.Preis} CHF/Monat</p>
+              <p class="unterstrichen">Alle Infos<p>
             </div>
           </summary>
           <p><b>Herkunft:</b>, ${tier.Kategorien.Kontinent}</p>

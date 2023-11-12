@@ -28,7 +28,7 @@ body {
 
 .continent-button:hover{
     font-size: 180%;
-    color: #4a1509;
+    color: #785543;
     }
 
 .kacheln {
@@ -44,6 +44,15 @@ summary {
 .kacheln-content{
     flex: 1;
 }
+
+.unterstrichen {
+    text-decoration: underline;
+    font-size: medium;
+  }
+  .unterstrichen:hover {
+    cursor: pointer;
+    color: #785543;
+  }
 
 
 
@@ -128,6 +137,7 @@ summary p {
     border-radius: 5px;
     color: white;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .donate-button:hover{
