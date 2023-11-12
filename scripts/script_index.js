@@ -1,6 +1,23 @@
 import { supa } from "../config/config.js";
 
 
+// Function to check if the user is logged in and redirect if necessary
+async function checkUser() {
+  const user = supa.auth.user();
+  if (user) {
+    return; // Weiterleitung zu einer anderen Seite
+  } else {
+      console.log("User is not logged in.");
+      window.location.href = 'https://603297-3.web.fhgr.ch/login.html';
+  }
+}
+
+window.addEventListener("load", (event) => {
+  console.log("page is fully loaded");
+  checkUser();
+});
+
+
 const toggleButtons = document.querySelectorAll('.toggle-details');
 
 toggleButtons.forEach(button => {
@@ -19,8 +36,6 @@ toggleButtons.forEach(button => {
         }
     });
 });
-
-
 
 
 // Funktion für donate-button______________________________________________________________________________________________________
